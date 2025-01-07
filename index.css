@@ -9,7 +9,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
+    background-color: #0c0c0c;
+    height: 3rem;
     padding: 0.5rem 1rem;
     color: white;
 }
@@ -48,15 +49,15 @@ body {
 }
 
 .middle1{
-    background-color: rgb(60, 58, 55);
+    border: 1px solid black;
 }
 
 .middle2{
-    background-color: rgb(178, 191, 191);
+    border: 1px solid black;
 }
 
 .middle3{
-    background-color: #eca7a7;
+    border: 1px solid black;
 }
 
 
@@ -69,11 +70,11 @@ body {
 }
 
 .lower1{
-    background-color: #ecddc8;
+    border: 1px solid black;
 }
 .lower2{
-    background-color: #af7a7a;
+    border: 1px solid black;
 }
 .lower3{
-    background-color: rgb(62, 70, 67);
+    border: 1px solid black;
 }
