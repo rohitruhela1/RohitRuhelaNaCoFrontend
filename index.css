@@ -60,6 +60,14 @@ body {
     border: 1px solid black;
 }
 
+.about1{
+    height: 13rem;
+}
+
+.profile_logo{
+    height: 7rem;
+    margin-left: 20rem;    
+}
 
 
 /* lower part css */
