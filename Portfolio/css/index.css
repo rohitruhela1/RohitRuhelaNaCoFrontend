@@ -5,24 +5,16 @@ body {
 }
 
 /* Navbar Styles */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #0c0c0c;
+ .navbar {
     height: 3rem;
     padding: 0.5rem 1rem;
-    color: white;
 }
 
 .logo {
     font-size: 1.5rem;
-    font-weight: bold;
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
     margin: 0;
     padding: 0;
 }
@@ -43,21 +35,8 @@ body {
 
 /* middle part */
 .middlepart{
-    display: grid;
     height: 30rem;
     grid-template-columns: 1fr 3fr 1fr;
-}
-
-.middle1{
-    border: 1px solid black;
-}
-
-.middle2{
-    border: 1px solid black;
-}
-
-.middle3{
-    border: 1px solid black;
 }
 
 .about1{
@@ -72,17 +51,6 @@ body {
 
 /* lower part css */
 .lowerpart{
-    display: grid;
     height: 20rem;
     grid-template-columns: 1fr 1fr 1fr;
-}
-
-.lower1{
-    border: 1px solid black;
-}
-.lower2{
-    border: 1px solid black;
-}
-.lower3{
-    border: 1px solid black;
 }
