@@ -33,15 +33,14 @@ body {
     color: #ff9800;
 }
 
+/* Gradient Background for Navbar */
 .gradient-custom {
     background: #6a11cb;
-  
     background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));
-  
     background: linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));
-  }
+}
 
-/* Middle Part */
+/* Middle Part Section */
 .middlepart {
     height: auto;
     grid-template-columns: 1fr;
@@ -52,34 +51,38 @@ body {
     width: 100%;
 }
 
-/* Lower Part */
+/* Customize Card 2 */
+.customize-card-2 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Lower Part Section */
 .lowerpart {
     height: auto;
     grid-template-columns: 1fr;
     gap: 1rem;
 }
 
-
+/* Card Hover Effect */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
 
 /* Responsive Design */
 @media (min-width: 768px) {
     .middlepart {
         grid-template-columns: 1fr 2fr 1fr;
     }
-
+    
     .lowerpart {
         grid-template-columns: 1fr 1fr 1fr;
     }
-    
 }
 
-/* card hover */
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
-  }
-
+/* Mobile Responsive Adjustments */
 @media (max-width: 767px) {
     .navbar {
         flex-direction: column;
@@ -93,9 +96,8 @@ body {
     .middlecard {
         height: auto;
     }
-
-    .profile_logo {
-        margin-left: auto;
-        margin-right: auto;
+    
+    .profile-card {
+        width: 90%;
     }
 }

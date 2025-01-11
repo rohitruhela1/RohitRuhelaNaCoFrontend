@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/index.css">
+    <!-- Include style.css -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
     <title>Portfolio</title>
 </head>
 <body>
-    <!-- Navbar --> 
-    <nav class="navbar navbar-expand-lg  navbar-dark bg-body-tertiary gradient-custom p-3 mx-4 my-2 rounded-3">
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-body-tertiary gradient-custom p-3 mx-4 my-2 rounded-3">
         <div class="container d-flex justify-content-between align-items-center">
             <!-- Logo -->
             <div class="navbar-brand text-white fw-bold">Personal Portfolio</div>
-            <!-- Small Screens -->
+            <!-- Small Screens Navbar Toggle -->
             <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon text-white"></span>
             </button>
             
-            <!--  Menu -->
-            <div class="collapse navbar-collapse " id="navbarNav">
+            <!-- Navbar Menu for Large Screens -->
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a href="#home" class="nav-link text-white">Home</a>
@@ -32,25 +34,26 @@
         </div>
     </nav>
     
-    
     <div class="">
-        <!-- Middle Part  -->
+        <!-- Middle Part Section -->
         <div class="middlepart d-grid gap-3 m-2 px-3 py-2">
-            <div class="card  border border-dark gradient-custom-card">
-                <div class="card-body ">
+            <!-- Personal Profile Card -->
+            <div class="card border border-dark gradient-custom-card">
+                <div class="card-body">
                     <h5 class="card-title fw-bold text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-person-vcard" viewBox="0 0 16 16">
                             <path d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4m4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5M9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8m1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5"/>
                             <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96q.04-.245.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 1 1 12z"/>
-                          </svg>
+                        </svg>
                         Personal Profile
                     </h5>
                     <p class="card-text">Elon Musk is a visionary entrepreneur and innovator known for founding and leading groundbreaking companies such as Tesla, SpaceX, Neuralink, and The Boring Company. Born in South Africa, Musk has consistently pushed the boundaries of technology, from revolutionizing electric vehicles to advancing space exploration with reusable rockets. His ambitious goals, including colonizing Mars and accelerating the world's transition to sustainable energy.</p>
                 </div>
             </div>
             
-            <div class="card border border-dark d-flex flex-column p-3">
-                <div class="card-body " style="height: 30%;">
+            <!-- Bio and Portfolio Cards Section -->
+            <div class="card border border-dark customize-card-2 p-3">
+                <div class="card-body" style="height: 30%;">
                     <div class="text-center d-flex justify-content-center align-items-center gap-4">
                         <p>Title</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -61,35 +64,36 @@
                     </div>
                 </div>
                 
-                <div class="d-flex flex-column midd" style="height: 70%;">
+                <!-- Personal Portfolio Cards -->
+                <div class="d-flex flex-column p-2" style="height: 70%;">
                     <h3 class="text-center fw-bold">Personal Portfolio</h3>
-                    <div class="d-flex justify-content-between m-2">
-                        <div class="card border border-dark p-3" style="width: 48%;">
+                    <div class="d-flex flex-column flex-sm-row justify-content-between m-3">
+                        <div class="card border border-dark p-3 mb-3 mb-sm-0 me-sm-3" style="width: 100%; max-width: 500px;">
                             <h5 class="text-center fw-bold">Bio</h5>
                             <p>A personal portfolio is a showcase of your skills, achievements.</p>
                         </div>
-                        
-                        <div class="card border border-dark p-3" style="width: 48%;">
+                
+                        <div class="card border border-dark p-3 mb-3 mb-sm-0" style="width: 100%; max-width: 500px;">
                             <h5 class="text-center fw-bold">Bio</h5>
                             <p>A personal portfolio is a showcase of your skills, achievements.</p>
                         </div>
                     </div>
                 </div>
-                
+                 
             </div>
             
-            
-            <div class="card  border border-dark ">
-                <div class="card-body ">
+            <!-- Personal Content Section -->
+            <div class="card border border-dark">
+                <div class="card-body">
                     <h5 class="card-title fw-bold text-center">Personal Content</h5>
                     <p class="card-text">
                         <h6 class="fw-bold">About me</h6>
                         <ul>
-                            <li>Competative Programmer</li>
-                            <li>MERN developer</li>
+                            <li>Competitive Programmer</li>
+                            <li>MERN Developer</li>
                             <li>Athlete</li>
                         </ul>
-                        <h6 class="fw-bold ">Contact</h6>
+                        <h6 class="fw-bold">Contact</h6>
                         <ul>
                             <li>Mobile: +1 (555) 123-4567</li>
                             <li>Email: example@email.com</li>
@@ -98,51 +102,51 @@
                         <h6 class="fw-bold">Social Media</h6>
                         <ul>
                             <li><a class="text-decoration-none text-black" href="https://www.linkedin.com/in/example" target="_blank">LinkedIn</a></li>
-                            <li><a class="text-decoration-none text-black" href="https://www.instagram.com/example" target="_blank">Instagra</a></li>
+                            <li><a class="text-decoration-none text-black" href="https://www.instagram.com/example" target="_blank">Instagram</a></li>
                         </ul>
                     </p>
-                    
                 </div>
             </div>
         </div>
 
-        <!-- Lower Part  -->
+        <!-- Lower Part Section -->
         <div class="lowerpart d-grid gap-3 m-2 px-3 py-1">
+            <!-- Basic Info Card -->
             <div class="card border border-dark p-3">
                 <div class="card-body text-center">
                     <h5 class="card-title fw-bold">Basic Info</h5>
-                    <p class="card-text">The rapid advancement of technology has significantly transformed the way we live, work, and communicate. From the integration of artificial intelligence in everyday applications to the widespread use of smartphones, technology continues to bridge gaps and create new opportunities. However, this evolution also raises important questions about privacy, ethics, and the impact on human interaction.  </p>
+                    <p class="card-text">The rapid advancement of technology has significantly transformed the way we live, work, and communicate. From the integration of artificial intelligence in everyday applications to the widespread use of smartphones, technology continues to bridge gaps and create new opportunities. However, this evolution also raises important questions about privacy, ethics, and the impact on human interaction.</p>
                 </div>
             </div>
             
-            <div class="card  border border-dark p-3">
-                <div class="card-body ">
+            <!-- Project Card -->
+            <div class="card border border-dark p-3">
+                <div class="card-body">
                     <h5 class="card-title fw-bold text-center">Project</h5>
                     <p class="card-text">
                         <li>
-                            <h6 class=" fw-bold">Personal Portfolio Website</h6>
+                            <h6 class="fw-bold">Personal Portfolio Website</h6>
                             The Personal Portfolio Website is a project designed to showcase an individual's skills, achievements, and projects in a professional and visually appealing manner. Built using modern web technologies like HTML, CSS, and JavaScript, this website features responsive design principles to ensure accessibility across various devices.
                         </li>
                     </p>
                 </div>
             </div>
             
-            <div class="card  border border-dark p-3">
-                <div class="card-body ">
+            <!-- Certification Card -->
+            <div class="card border border-dark p-3">
+                <div class="card-body">
                     <h5 class="card-title fw-bold text-center">Certification</h5>
-                    <p class="card-text ">
-                        <li><h6 class=" fw-bold">Certified in IoT Fundamentals</h6>
+                    <p class="card-text">
+                        <li><h6 class="fw-bold">Certified in IoT Fundamentals</h6>
                             The Smart Home Automation System is an innovative project that utilizes IoT technology to transform traditional homes into intelligent living spaces. This system allows users to remotely control and monitor household devices such as lights, thermostats, security cameras, and appliances through a centralized application.
                         </li>
-    
                     </p>
                 </div>
             </div>
         </div>
     </div>
     
-    
-
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
