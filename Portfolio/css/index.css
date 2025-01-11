@@ -5,52 +5,96 @@ body {
 }
 
 /* Navbar Styles */
- .navbar {
-    height: 3rem;
+.navbar {
     padding: 0.5rem 1rem;
 }
 
-.logo {
-    font-size: 1.5rem;
+.navbar-toggler {
+    color: white;
 }
 
-.nav-links {
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-nav {
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
-.nav-links li {
-    margin: 0 1rem;
-}
-
-.nav-links a {
+.nav-link {
     text-decoration: none;
     color: white;
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.nav-link:hover {
     color: #ff9800;
 }
 
-/* middle part */
-.middlepart{
-    height: 30rem;
-    grid-template-columns: 1fr 3fr 1fr;
+.gradient-custom {
+    background: #6a11cb;
+  
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));
+  
+    background: linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));
+  }
+
+/* Middle Part */
+.middlepart {
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
-.about1{
-    height: 13rem;
+.card {
+    width: 100%;
 }
 
-.profile_logo{
-    height: 7rem;
-    margin-left: 20rem;    
+/* Lower Part */
+.lowerpart {
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
 
-/* lower part css */
-.lowerpart{
-    height: 20rem;
-    grid-template-columns: 1fr 1fr 1fr;
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .middlepart {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    .lowerpart {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
+
+@media (max-width: 767px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .middlecard {
+        height: auto;
+    }
+
+    .profile_logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
