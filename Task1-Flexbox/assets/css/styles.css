@@ -1,0 +1,191 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    /* Gradient background */
+    background: linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9)); /* Gradient background */
+    
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;  
+    margin: 10px 23px;
+    border-radius: 10px;
+}
+
+
+/* Navbar Links */
+.navbar-links {
+    display: flex;
+    gap: 1.5rem;
+    
+}
+
+/* personal profile navbar  */
+.navbar-brand{
+    color: white;
+    font-weight: bold;
+    padding: 10px 30px;
+    font-size: large;
+}
+
+/*navbar links */
+
+.navbar-links a {
+    text-decoration: none;
+    color: rgb(249, 240, 240);
+    font-weight: 500;
+}
+
+/* Mobile menu layout */
+.navbar-links.active {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 5px;
+    z-index: 10; /* Ensure the menu appears above other content */
+}
+
+/* Toggle Button (Hamburger Icon) */
+.navbar-toggler {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.navbar-toggler div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Toggle Button Animation */
+.navbar-expanded .navbar-toggler div:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 8px;
+}
+
+.navbar-expanded .navbar-toggler div:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-expanded .navbar-toggler div:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -8px;
+}
+
+
+/* middle part  */
+
+.middlepart {
+    display: grid;
+    gap: 1rem;
+    margin: 10px 20px;
+}
+
+.middlepart {
+    grid-template-columns: 1fr;
+}
+
+.card_2_upper_section{
+    display: flex;
+    flex-direction: row;   
+    align-items: center;       
+    justify-content:center; 
+    gap: 10px;
+}
+
+.card_2_lower_sec{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+.card_2_mid_heading{
+    text-align: center;
+}
+
+.card_3_a{
+    text-decoration: none;
+    color: black;
+}
+
+/* lower part */
+.lowerpart {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 10px 20px;
+    grid-template-columns: 1fr;
+}
+
+
+/* card  */
+.card {
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 5px;
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card h3{
+    text-align: center;
+}
+
+/* card hover */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* line and text spacing */
+.Text_decoration_card{
+    word-spacing: 3px;
+    line-height: 1.4;
+}
+
+
+/* Make the navbar items take up the full screen on smaller screens */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+    }
+
+    .navbar-toggler {
+        display: flex;
+    }
+    
+    .card_2_lower_sec{
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    .lowerpart {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 768px) {
+    .middlepart {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    .lowerpart {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
