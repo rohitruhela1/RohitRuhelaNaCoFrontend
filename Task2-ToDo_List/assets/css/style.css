@@ -1,0 +1,180 @@
+/* General body styling */
+body {
+  font-family: Arial, sans-serif; 
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9; 
+  color: #333; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+}
+
+/* Main container styling */
+.container {
+  text-align: center; 
+  width: 100%;
+  max-width: 90%; 
+  background: #fff; 
+  border-radius: 10px; 
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+/* Title styling */
+.title {
+  margin-bottom: 20px; 
+  font-size: 1.8rem;
+}
+
+/* Input section styling */
+.input-section {
+  display: flex; 
+  justify-content: center; 
+  gap: 10px; 
+  margin-bottom: 20px; 
+}
+
+/* input item field*/
+#taskInput {
+  flex: 1;
+  padding: 10px; 
+  max-width: 20rem; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+}
+
+/* Add button styling */
+#addButton {
+  padding: 10px 15px; 
+  background-color: #007bff; 
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+}
+
+/* button hover */
+#addButton:hover {
+  background-color: #0056b3; 
+}
+
+/* Lists container styling */
+.lists {
+  display: flex; 
+  flex: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; 
+}
+
+/* Individual list container styling */
+.list-container {
+  flex: 1; 
+  max-width: 20rem;
+  margin: 0 10px;
+  overflow: hidden; 
+}
+
+/* Task list styling */
+.task-list {
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  min-height: 150px; 
+  background-color: #f9f9f9; 
+}
+
+/* Individual task styling */
+.task-list li {
+  padding: 10px; 
+  border-bottom: 1px solid #ddd;
+  cursor: pointer; 
+}
+
+/* Removes border for the last task in the list */
+.task-list li:last-child {
+  border-bottom: none;
+}
+
+/* Styling for selected tasks */
+.task-list li.selected {
+  background-color: #007bff; 
+  color: #fff; 
+}
+
+/* Buttons container styling */
+.buttons {
+  display: flex; 
+  flex-direction: column;
+  gap: 10px; 
+  margin: 20px; 
+}
+
+/* General button styling */
+button {
+  padding: 10px;
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+}
+
+/* Move right button styling */
+#moveRightButton {
+  background-color: #28a745; 
+  color: #fff; 
+}
+
+/* move button hover */
+#moveRightButton:hover {
+  background-color: #218838; 
+}
+
+/* Move left button styling */
+#moveLeftButton {
+  background-color: #ffc107; 
+  color: #fff; 
+}
+
+/* Darker yellow on hover */
+#moveLeftButton:hover {
+  background-color: #e0a800; 
+}
+
+/* Remove button styling */
+#removeButton {
+  padding: 10px 15px;
+  background-color: #dc3545;
+  color: #fff; 
+  border: none; 
+  border-radius: 5px;
+  cursor: pointer; 
+}
+
+/* remvoe button hover */
+#removeButton:hover {
+  background-color: #c82333; 
+}
+
+/* Media query for small screens */
+@media (max-width: 600px) {
+  .buttons {
+    justify-content: center; 
+    gap: 20px; 
+  }
+
+  .lists {
+    flex-direction: column; /* Stacks lists vertically */
+  }
+
+  #moveRightButton {
+    content: "MOVE TO DOWN"; /* Updates text for small screens */
+  }
+
+  #moveLeftButton {
+    content: "MOVE TO UP"; /* Updates text for small screens */
+  }
+}
