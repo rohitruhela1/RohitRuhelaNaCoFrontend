@@ -33,23 +33,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function to add a new task to the "To-Do" list
   const addTask = () => {
-    const taskName = taskInput.value.trim(); // Get the task name and trim whitespace
+    const taskName = taskInput.value.trim(); 
+
     if (taskName) {
-      // Check if the task already exists in the todoList
       const tasks = Array.from(todoList.children).map(
         (task) => task.textContent
       );
-      if (tasks.includes(taskName)) {
-        alert("Task already exists!"); 
-        return;
-      }
+      const tasks2 = Array.from(completeList.children).map(
+        (task) => task.textContent
+      );
 
-      const task = document.createElement("li");
-      task.textContent = taskName;
-      task.addEventListener("click", () => {
-        task.classList.toggle("selected");
-      });
-      todoList.appendChild(task); 
+      if (tasks.includes(taskName) ) {
+        alert("Task already exists in To-Do list!"); 
+      }
+      else if (tasks2.includes(taskName)) {
+          const taskToMove = Array.from(completeList.children).find(task => task.textContent === taskName);
+          if (taskToMove) {
+              completeList.removeChild(taskToMove); // Remove from Complete list
+              todoList.appendChild(taskToMove); // Add to To-Do list
+              saveTasks(); // Save updated lists to localStorage
+          }
+      } 
+      else{
+        const task = document.createElement("li");
+        task.textContent = taskName;
+        task.addEventListener("click", () => {
+          task.classList.toggle("selected");
+        });
+        todoList.appendChild(task); 
+      }
       taskInput.value = ""; 
       saveTasks(); 
     }
