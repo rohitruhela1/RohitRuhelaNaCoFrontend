@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let suppressToaster = false; // Flag to suppress toaster during Undo
 
   // Function to show toaster messages (5 seconds for removal)
-  let toasterTimeout; // Variable to store the timeout ID
+  let toasterTimeout; 
 
   // toaster funtion for 5 sec
 
@@ -42,12 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
       clearTimeout(toasterTimeout);
 
       toasterMessage.textContent = message;
-
-      undoButton.classList.remove("hidden1");
+      
+      // do not want the undo button for move,add
+      // undoButton.classList.remove("hidden1");
       toaster.classList.remove("hidden");
 
       toasterTimeout = setTimeout(() => {
-        undoButton.classList.remove("hidden1");
+        // undoButton.classList.remove("hidden1");
         toaster.classList.add("hidden");
       }, 3000);
     }
@@ -88,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       if (tasks.includes(taskName)) {
-        showToaster("Task already exists !");
+        showToasterForMove("Task already exists !");
       } else if (tasks2.includes(taskName)) {
         const taskToMove = Array.from(completeList.children).find(
           (task) => task.textContent === taskName
