@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Countdown Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0c0c0c;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .main-container {
+      text-align: center;
+      width: 100%;
+      max-width: 90%;
+      background: #ede9e9;
+      color: #0c0c0c;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .heading {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    .heading>div {
+      flex: 1;
+    }
+
+    #submit-btn {
+      margin-left: auto;
+    }
+
+    #Countdowntimer {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .heading h3 {
+      margin: 0;
+    }
+
+    .heading p {
+      margin: 10px 0 0;
+      font-size: 1.2rem;
+    }
+
+    hr.horizontal_line {
+      border: 0;
+      height: 2px;
+      background-color: #0c0c0c;
+      margin: 20px 0;
+    }
+
+    .quiz-container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .option {
+      padding: 10px;
+      background-color: #e0e0e0;
+      margin: 5px 0;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .option:hover {
+      background-color: #ccc;
+    }
+
+    .submitorskip {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .submitorskip button {
+      margin: 5px;
+      padding: 5px;
+      width: 80px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #24b73a;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .Show-attempted {
+      display: flex;
+      flex-wrap: wrap;
+      /* Allows wrapping of items */
+      margin: 5px;
+      padding: 5px;
+    }
+
+    .Show-attempted div {
+      margin: 5px;
+      padding: 5px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f4f4f4;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="body-container">
+      <!-- Header -->
+      <div class="heading">
+        <div>
+          <h3>Question <span id="QuestionSN">1</span> of 105</h3>
+          <p>Marks +1 -0.33 | <span id="Countdowntimer">00:00</span></p>
+        </div>
+        <div>
+          <button class="submit-btn" id="submit-btn" onclick="SubmitTheQuiz()">
+            Submit
+          </button>
+        </div>
+      </div>
+
+      <hr class="horizontal_line" />
+
+      <!-- Questions -->
+      <div class="quiz-container">
+        <div class="question-container">
+          <!-- Question Content -->
+          <div class="question" id="question-content"></div>
+
+          <!-- Options -->
+          <div class="option" id="option-1" onclick="checkAnswer(1)"></div>
+          <div class="option" id="option-2" onclick="checkAnswer(2)"></div>
+          <div class="option" id="option-3" onclick="checkAnswer(3)"></div>
+          <div class="option" id="option-4" onclick="checkAnswer(4)"></div>
+        </div>
+      </div>
+      <div class="submitorskip">
+        <button class="skip-btn" id="skip-btn" onclick="SkipTheQuestion()">
+          Skip
+        </button>
+        <button class="skip-btn" id="next-btn" onclick="NextQuestion()">
+          Next
+        </button>
+      </div>
+
+      <hr class="horizontal_line" />
+      <!-- show question attempted or not -->
+      <div class="Show-attempted">
+        <div id="1" onclick="loadQuestionByChoice(1)">1</div>
+        <div id="2" onclick="loadQuestionByChoice(2)">2</div>
+        <div id="3" onclick="loadQuestionByChoice(3)">3</div>
+        <div id="4" onclick="loadQuestionByChoice(4)">4</div>
+        <div id="5" onclick="loadQuestionByChoice(5)">5</div>
+        <div id="6" onclick="loadQuestionByChoice(6)">6</div>
+        <div id="7" onclick="loadQuestionByChoice(7)">7</div>
+        <div id="8" onclick="loadQuestionByChoice(8)">8</div>
+        <div id="9" onclick="loadQuestionByChoice(9)">9</div>
+        <div id="10" onclick="loadQuestionByChoice(10)">10</div>
+        <div id="11" onclick="loadQuestionByChoice(11)">11</div>
+        <div id="12" onclick="loadQuestionByChoice(12)">12</div>
+        <div id="13" onclick="loadQuestionByChoice(13)">13</div>
+        <div id="14" onclick="loadQuestionByChoice(14)">14</div>
+        <div id="15" onclick="loadQuestionByChoice(15)">15</div>
+        <div id="16" onclick="loadQuestionByChoice(16)">16</div>
+        <div id="17" onclick="loadQuestionByChoice(17)">17</div>
+        <div id="18" onclick="loadQuestionByChoice(18)">18</div>
+        <div id="19" onclick="loadQuestionByChoice(19)">19</div>
+        <div id="20" onclick="loadQuestionByChoice(20)">20</div>
+        <div id="21" onclick="loadQuestionByChoice(21)">21</div>
+        <div id="22" onclick="loadQuestionByChoice(22)">22</div>
+        <div id="23" onclick="loadQuestionByChoice(23)">23</div>
+        <div id="24" onclick="loadQuestionByChoice(24)">24</div>
+        <div id="25" onclick="loadQuestionByChoice(25)">25</div>
+        <div id="26" onclick="loadQuestionByChoice(26)">26</div>
+        <div id="27" onclick="loadQuestionByChoice(27)">27</div>
+        <div id="28" onclick="loadQuestionByChoice(28)">28</div>
+        <div id="29" onclick="loadQuestionByChoice(29)">29</div>
+        <div id="30" onclick="loadQuestionByChoice(30)">30</div>
+        <div id="31" onclick="loadQuestionByChoice(31)">31</div>
+        <div id="32" onclick="loadQuestionByChoice(32)">32</div>
+        <div id="33" onclick="loadQuestionByChoice(33)">33</div>
+        <div id="34" onclick="loadQuestionByChoice(34)">34</div>
+        <div id="35" onclick="loadQuestionByChoice(35)">35</div>
+        <div id="36" onclick="loadQuestionByChoice(36)">36</div>
+        <div id="37" onclick="loadQuestionByChoice(37)">37</div>
+        <div id="38" onclick="loadQuestionByChoice(38)">38</div>
+        <div id="39" onclick="loadQuestionByChoice(39)">39</div>
+        <div id="40" onclick="loadQuestionByChoice(40)">40</div>
+        <div id="41" onclick="loadQuestionByChoice(41)">41</div>
+        <div id="42" onclick="loadQuestionByChoice(42)">42</div>
+        <div id="43" onclick="loadQuestionByChoice(43)">43</div>
+        <div id="44" onclick="loadQuestionByChoice(44)">44</div>
+        <div id="45" onclick="loadQuestionByChoice(45)">45</div>
+        <div id="46" onclick="loadQuestionByChoice(46)">46</div>
+        <div id="47" onclick="loadQuestionByChoice(47)">47</div>
+        <div id="48" onclick="loadQuestionByChoice(48)">48</div>
+        <div id="49" onclick="loadQuestionByChoice(49)">49</div>
+        <div id="50" onclick="loadQuestionByChoice(50)">50</div>
+        <div id="51" onclick="loadQuestionByChoice(51)">51</div>
+        <div id="52" onclick="loadQuestionByChoice(52)">52</div>
+        <div id="53" onclick="loadQuestionByChoice(53)">53</div>
+        <div id="54" onclick="loadQuestionByChoice(54)">54</div>
+        <div id="55" onclick="loadQuestionByChoice(55)">55</div>
+        <div id="56" onclick="loadQuestionByChoice(56)">56</div>
+        <div id="57" onclick="loadQuestionByChoice(57)">57</div>
+        <div id="58" onclick="loadQuestionByChoice(58)">58</div>
+        <div id="59" onclick="loadQuestionByChoice(59)">59</div>
+        <div id="60" onclick="loadQuestionByChoice(60)">60</div>
+        <div id="61" onclick="loadQuestionByChoice(61)">61</div>
+        <div id="62" onclick="loadQuestionByChoice(62)">62</div>
+        <div id="63" onclick="loadQuestionByChoice(63)">63</div>
+        <div id="64" onclick="loadQuestionByChoice(64)">64</div>
+        <div id="65" onclick="loadQuestionByChoice(65)">65</div>
+        <div id="66" onclick="loadQuestionByChoice(66)">66</div>
+        <div id="67" onclick="loadQuestionByChoice(67)">67</div>
+        <div id="68" onclick="loadQuestionByChoice(68)">68</div>
+        <div id="69" onclick="loadQuestionByChoice(69)">69</div>
+        <div id="70" onclick="loadQuestionByChoice(70)">70</div>
+        <div id="71" onclick="loadQuestionByChoice(71)">71</div>
+        <div id="72" onclick="loadQuestionByChoice(72)">72</div>
+        <div id="73" onclick="loadQuestionByChoice(73)">73</div>
+        <div id="74" onclick="loadQuestionByChoice(74)">74</div>
+        <div id="75" onclick="loadQuestionByChoice(75)">75</div>
+        <div id="76" onclick="loadQuestionByChoice(76)">76</div>
+        <div id="77" onclick="loadQuestionByChoice(77)">77</div>
+        <div id="78" onclick="loadQuestionByChoice(78)">78</div>
+        <div id="79" onclick="loadQuestionByChoice(79)">79</div>
+        <div id="80" onclick="loadQuestionByChoice(80)">80</div>
+        <div id="81" onclick="loadQuestionByChoice(81)">81</div>
+        <div id="82" onclick="loadQuestionByChoice(82)">82</div>
+        <div id="83" onclick="loadQuestionByChoice(83)">83</div>
+        <div id="84" onclick="loadQuestionByChoice(84)">84</div>
+        <div id="85" onclick="loadQuestionByChoice(85)">85</div>
+        <div id="86" onclick="loadQuestionByChoice(86)">86</div>
+        <div id="87" onclick="loadQuestionByChoice(87)">87</div>
+        <div id="88" onclick="loadQuestionByChoice(88)">88</div>
+        <div id="89" onclick="loadQuestionByChoice(89)">89</div>
+        <div id="90" onclick="loadQuestionByChoice(90)">90</div>
+        <div id="91" onclick="loadQuestionByChoice(91)">91</div>
+        <div id="92" onclick="loadQuestionByChoice(92)">92</div>
+        <div id="93" onclick="loadQuestionByChoice(93)">93</div>
+        <div id="94" onclick="loadQuestionByChoice(94)">94</div>
+        <div id="95" onclick="loadQuestionByChoice(95)">95</div>
+        <div id="96" onclick="loadQuestionByChoice(96)">96</div>
+        <div id="97" onclick="loadQuestionByChoice(97)">97</div>
+        <div id="98" onclick="loadQuestionByChoice(98)">98</div>
+        <div id="99" onclick="loadQuestionByChoice(99)">99</div>
+        <div id="100" onclick="loadQuestionByChoice(100)">100</div>
+        <div id="101" onclick="loadQuestionByChoice(101)">101</div>
+        <div id="102" onclick="loadQuestionByChoice(102)">102</div>
+        <div id="103" onclick="loadQuestionByChoice(103)">103</div>
+        <div id="104" onclick="loadQuestionByChoice(104)">104</div>
+        <div id="105" onclick="loadQuestionByChoice(105)">105</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // question object
+    const questions = [
+      {
+        id: 1,
+        question: "Which of the following is a prime number?",
+        options: ["517", "559", "571", "533"],
+        correctAnswer: "571",
+        answerText:
+          "571 is a prime number because it has no divisors other than 1 and itself.",
+      },
+      {
+        id: 2,
+        question: "Find the sum of the first 90 even natural numbers.",
+        options: ["8180", "8190", "8100", "8110"],
+        correctAnswer: "8190",
+        answerText:
+          "The sum of the first 90 even natural numbers is 8190. The formula for the sum of the first n even numbers is n(n + 1).",
+      },
+      {
+        id: 3,
+        question:
+          "Find the sum of two numbers, whose product is 200 and difference is minimum.",
+        options: ["30", "27", "35", "33"],
+        correctAnswer: "30",
+        answerText:
+          "The sum of the two numbers with a product of 200 and minimum difference is 30.",
+      },
+      {
+        id: 4,
+        question: "Find the ten’s digit in the expression 65² – 55².",
+        options: ["2", "6", "5", "0"],
+        correctAnswer: "0",
+        answerText:
+          "The result of 65² – 55² is 6500, and the ten’s digit is 0.",
+      },
+      {
+        id: 5,
+        question:
+          "A number when divided by 91 leaves a remainder 65. If the same number is divided by 13, find the remainder.",
+        options: ["7", "0", "5", "12"],
+        correctAnswer: "0",
+        answerText:
+          "When divided by 13, the remainder is 0 because 91 is a multiple of 13, and the number is congruent to 0 modulo 13.",
+      },
+      {
+        id: 6,
+        question: "Which of the following is not a twin prime?",
+        options: ["3,5", "11,13", "17,19", "13,17"],
+        correctAnswer: "13,17",
+        answerText:
+          "13 and 17 are not twin primes because their difference is 4, not 2.",
+      },
+      {
+        id: 7,
+        question: "Which of the following is a prime number?",
+        options: ["233", "251", "241", "259"],
+        correctAnswer: "241",
+        answerText:
+          "241 is a prime number as it has no divisors other than 1 and itself.",
+      },
+      {
+        id: 8,
+        question:
+          "In which of the following base systems, 243 is not a valid number?",
+        options: ["Base 4", "Base 5", "Base 6", "Base 8"],
+        correctAnswer: "Base 4",
+        answerText:
+          "243 is not a valid number in base 4 because digits in base 4 can only be 0, 1, 2, or 3.",
+      },
+      {
+        id: 9,
+        question: "If x + y = 21 and xy = 110, find the value of x² + y².",
+        options: ["221", "231", "241", "251"],
+        correctAnswer: "221",
+        answerText:
+          "Using the identity (x + y)² = x² + y² + 2xy, we calculate x² + y² = (x + y)² - 2xy = 441 - 220 = 221.",
+      },
+      {
+        id: 10,
+        question: "If a - b = 16 and a² - b² = 544, find the value of 2ab.",
+        options: ["350", "450", "500", "550"],
+        correctAnswer: "450",
+        answerText:
+          "We use the identity a² - b² = (a - b)(a + b) to find a + b = 34. Then 2ab = (a - b)(a + b) = 16 * 34 = 450.",
+      },
+      {
+        id: 11,
+        question: "Find the value of x in the equation: 5x + 7 = 27.",
+        options: ["3", "4", "5", "6"],
+        correctAnswer: "4",
+        answerText: "Solving for x, 5x = 27 - 7 = 20, so x = 20 / 5 = 4.",
+      },
+      {
+        id: 12,
+        question:
+          "Which of the following is a solution to the equation 3x - 2 = 4?",
+        options: ["1", "2", "3", "4"],
+        correctAnswer: "2",
+        answerText: "Solving for x, 3x = 4 + 2 = 6, so x = 6 / 3 = 2.",
+      },
+      {
+        id: 13,
+        question: "What is the least common multiple (LCM) of 12 and 18?",
+        options: ["36", "72", "108", "54"],
+        correctAnswer: "36",
+        answerText: "The LCM of 12 and 18 is 36.",
+      },
+      {
+        id: 14,
+        question:
+          "If the area of a square is 64 cm², what is the length of each side?",
+        options: ["6 cm", "7 cm", "8 cm", "9 cm"],
+        correctAnswer: "8 cm",
+        answerText:
+          "The area of a square is given by side², so side = √64 = 8 cm.",
+      },
+      {
+        id: 15,
+        question:
+          "The average of five numbers is 12. If four of the numbers are 10, 15, 20, and 25, what is the fifth number?",
+        options: ["12", "13", "14", "15"],
+        correctAnswer: "8",
+        answerText:
+          "The sum of the five numbers is 12 * 5 = 60. The sum of the first four numbers is 10 + 15 + 20 + 25 = 70, so the fifth number is 60 - 70 = -8.",
+      },
+      {
+        id: 16,
+        question:
+          "A shopkeeper sold a product for Rs. 250 which cost him Rs. 200. What is the percentage profit?",
+        options: ["20%", "25%", "30%", "35%"],
+        correctAnswer: "25%",
+        answerText:
+          "The profit is Rs. 250 - Rs. 200 = Rs. 50. The percentage profit is (50 / 200) * 100 = 25%.",
+      },
+      {
+        id: 17,
+        question:
+          "If the speed of a train is 80 km/h, how far will it travel in 3 hours?",
+        options: ["240 km", "250 km", "270 km", "300 km"],
+        correctAnswer: "240 km",
+        answerText:
+          "The distance traveled is speed * time = 80 km/h * 3 hours = 240 km.",
+      },
+      {
+        id: 18,
+        question: "Find the sum of the first 20 odd numbers.",
+        options: ["100", "200", "300", "400"],
+        correctAnswer: "400",
+        answerText:
+          "The sum of the first n odd numbers is given by the formula n². So the sum of the first 20 odd numbers is 20² = 400.",
+      },
+      {
+        id: 19,
+        question: "What is the square root of 121?",
+        options: ["9", "10", "11", "12"],
+        correctAnswer: "11",
+        answerText: "The square root of 121 is 11, because 11 * 11 = 121.",
+      },
+      {
+        id: 20,
+        question:
+          "If a car travels 60 km in 1 hour, how much time will it take to cover 180 km?",
+        options: ["1 hour", "2 hours", "3 hours", "4 hours"],
+        correctAnswer: "3 hours",
+        answerText:
+          "Since the car travels 60 km in 1 hour, it will take 180 / 60 = 3 hours to cover 180 km.",
+      },
+      {
+        id: 21,
+        question: "What is the value of x in the equation: 2x + 3 = 11?",
+        options: ["3", "4", "5", "6"],
+        correctAnswer: "4",
+        answerText: "Solving for x, 2x = 11 - 3 = 8, so x = 8 / 2 = 4.",
+      },
+      {
+        id: 22,
+        question: "What is the sum of the interior angles of a triangle?",
+        options: ["90°", "180°", "360°", "270°"],
+        correctAnswer: "180°",
+        answerText:
+          "The sum of the interior angles of a triangle is always 180°.",
+      },
+      {
+        id: 23,
+        question:
+          "If the perimeter of a rectangle is 40 cm and the length is 12 cm, what is the width?",
+        options: ["8 cm", "10 cm", "12 cm", "14 cm"],
+        correctAnswer: "8 cm",
+        answerText:
+          "Perimeter of a rectangle is 2(l + w). So, 2(12 + w) = 40, which simplifies to 24 + 2w = 40. Solving for w, we get w = 8 cm.",
+      },
+      {
+        id: 24,
+        question: "Find the value of x in the equation: 4x - 9 = 15.",
+        options: ["6", "5", "4", "3"],
+        correctAnswer: "6",
+        answerText: "Solving for x, 4x = 15 + 9 = 24, so x = 24 / 4 = 6.",
+      },
+      {
+        id: 25,
+        question: "What is the value of 5³?",
+        options: ["125", "100", "150", "200"],
+        correctAnswer: "125",
+        answerText: "5³ = 5 * 5 * 5 = 125.",
+      },
+      {
+        id: 26,
+        question: "If 6x = 48, what is the value of x?",
+        options: ["8", "7", "6", "9"],
+        correctAnswer: "8",
+        answerText: "Solving for x, x = 48 / 6 = 8.",
+      },
+      {
+        id: 27,
+        question: "The sum of the first 15 natural numbers is:",
+        options: ["105", "120", "135", "150"],
+        correctAnswer: "120",
+        answerText:
+          "The sum of the first n natural numbers is given by the formula n(n + 1)/2. So, for n = 15, the sum is 15(16)/2 = 120.",
+      },
+      {
+        id: 28,
+        question: "What is the smallest prime number?",
+        options: ["0", "1", "2", "3"],
+        correctAnswer: "2",
+        answerText: "The smallest prime number is 2.",
+      },
+      {
+        id: 29,
+        question: "What is the area of a circle with a radius of 7 cm?",
+        options: ["154 cm²", "143 cm²", "122 cm²", "100 cm²"],
+        correctAnswer: "154 cm²",
+        answerText:
+          "The area of a circle is given by πr². Using π ≈ 3.14, the area is 3.14 * 7² = 154 cm².",
+      },
+      {
+        id: 30,
+        question:
+          "If a number is divisible by both 2 and 3, it is divisible by which number?",
+        options: ["5", "6", "4", "8"],
+        correctAnswer: "6",
+        answerText: "A number divisible by both 2 and 3 is divisible by 6.",
+      },
+      {
+        id: 31,
+        question: "Which of the following is the value of 3² + 4²?",
+        options: ["9", "16", "25", "20"],
+        correctAnswer: "25",
+        answerText: "3² + 4² = 9 + 16 = 25.",
+      },
+      {
+        id: 32,
+        question: "What is the value of 4! (4 factorial)?",
+        options: ["24", "48", "120", "6"],
+        correctAnswer: "24",
+        answerText: "4! = 4 * 3 * 2 * 1 = 24.",
+      },
+      {
+        id: 33,
+        question:
+          "If the total cost of 5 books is Rs. 500, what is the cost of one book?",
+        options: ["80", "90", "100", "110"],
+        correctAnswer: "100",
+        answerText: "The cost of one book is 500 / 5 = 100.",
+      },
+      {
+        id: 34,
+        question: "What is the value of 2⁴?",
+        options: ["16", "8", "32", "64"],
+        correctAnswer: "16",
+        answerText: "2⁴ = 2 * 2 * 2 * 2 = 16.",
+      },
+      {
+        id: 35,
+        question:
+          "If a train travels 60 km/h for 3 hours, how far will it travel?",
+        options: ["150 km", "180 km", "200 km", "210 km"],
+        correctAnswer: "180 km",
+        answerText: "Distance = Speed * Time = 60 km/h * 3 hours = 180 km.",
+      },
+      {
+        id: 36,
+        question:
+          "The perimeter of a square is 40 cm. What is the length of each side?",
+        options: ["5 cm", "10 cm", "8 cm", "12 cm"],
+        correctAnswer: "10 cm",
+        answerText:
+          "Perimeter of a square = 4 * side, so side = 40 / 4 = 10 cm.",
+      },
+      {
+        id: 37,
+        question: "If x + y = 10 and x - y = 2, what is the value of x?",
+        options: ["6", "7", "8", "9"],
+        correctAnswer: "6",
+        answerText: "By solving the two equations, x = (10 + 2) / 2 = 6.",
+      },
+      {
+        id: 38,
+        question: "What is the square of 12?",
+        options: ["144", "121", "100", "169"],
+        correctAnswer: "144",
+        answerText: "The square of 12 is 12 * 12 = 144.",
+      },
+      {
+        id: 39,
+        question:
+          "If the cost of 3 pens is Rs. 30, what is the cost of 10 pens?",
+        options: ["100", "120", "150", "200"],
+        correctAnswer: "100",
+        answerText:
+          "The cost of 1 pen is 30 / 3 = 10. So, the cost of 10 pens is 10 * 10 = 100.",
+      },
+      {
+        id: 40,
+        question:
+          "What is the area of a triangle with base 8 cm and height 5 cm?",
+        options: ["20 cm²", "15 cm²", "40 cm²", "25 cm²"],
+        correctAnswer: "20 cm²",
+        answerText:
+          "The area of a triangle is (1/2) * base * height = (1/2) * 8 * 5 = 20 cm².",
+      },
+      {
+        id: 41,
+        question: "What is the cube of 5?",
+        options: ["125", "100", "150", "200"],
+        correctAnswer: "125",
+        answerText: "The cube of 5 is 5 * 5 * 5 = 125.",
+      },
+      {
+        id: 42,
+        question: "The sum of the first 20 natural numbers is:",
+        options: ["210", "190", "180", "220"],
+        correctAnswer: "210",
+        answerText:
+          "The sum of the first n natural numbers is given by the formula n(n + 1)/2. For n = 20, the sum is 20(21)/2 = 210.",
+      },
+      {
+        id: 43,
+        question:
+          "Which of the following is the largest prime number less than 100?",
+        options: ["89", "97", "91", "81"],
+        correctAnswer: "97",
+        answerText: "97 is the largest prime number less than 100.",
+      },
+      {
+        id: 44,
+        question: "What is the value of 7! (7 factorial)?",
+        options: ["5040", "720", "840", "360"],
+        correctAnswer: "5040",
+        answerText: "7! = 7 * 6 * 5 * 4 * 3 * 2 * 1 = 5040.",
+      },
+      {
+        id: 45,
+        question:
+          "The area of a rectangle is 60 cm², and its length is 12 cm. What is the width?",
+        options: ["4 cm", "5 cm", "6 cm", "7 cm"],
+        correctAnswer: "5 cm",
+        answerText:
+          "The area of a rectangle is length * width. So, width = area / length = 60 / 12 = 5 cm.",
+      },
+      {
+        id: 46,
+        question: "What is the smallest even number greater than 0?",
+        options: ["2", "4", "6", "8"],
+        correctAnswer: "2",
+        answerText: "The smallest even number greater than 0 is 2.",
+      },
+      {
+        id: 47,
+        question: "What is the value of 15 × 7?",
+        options: ["105", "115", "125", "135"],
+        correctAnswer: "105",
+        answerText: "15 × 7 = 105.",
+      },
+      {
+        id: 48,
+        question: "Which of the following is not a prime number?",
+        options: ["2", "3", "5", "9"],
+        correctAnswer: "9",
+        answerText: "9 is not a prime number; it is divisible by 3.",
+      },
+      {
+        id: 49,
+        question: "What is the value of x in the equation: 3x + 4 = 19?",
+        options: ["5", "4", "6", "7"],
+        correctAnswer: "5",
+        answerText: "Solving for x, 3x = 19 - 4 = 15, so x = 15 / 3 = 5.",
+      },
+      {
+        id: 50,
+        question:
+          "The sum of two numbers is 30, and their difference is 10. What are the two numbers?",
+        options: ["20 and 10", "25 and 5", "30 and 0", "15 and 15"],
+        correctAnswer: "20 and 10",
+        answerText:
+          "Let the numbers be x and y. We have x + y = 30 and x - y = 10. Solving these, x = 20 and y = 10.",
+      },
+      {
+        id: 51,
+        question: "What is the perimeter of a square with side length 6 cm?",
+        options: ["24 cm", "36 cm", "48 cm", "60 cm"],
+        correctAnswer: "24 cm",
+        answerText:
+          "The perimeter of a square is 4 times the side length, so 4 * 6 = 24 cm.",
+      },
+      {
+        id: 52,
+        question: "What is the value of 4 raised to the power of 3?",
+        options: ["64", "48", "32", "128"],
+        correctAnswer: "64",
+        answerText: "4³ = 4 * 4 * 4 = 64.",
+      },
+      {
+        id: 53,
+        question: "Which of the following is the square root of 144?",
+        options: ["14", "12", "16", "18"],
+        correctAnswer: "12",
+        answerText: "The square root of 144 is 12.",
+      },
+      {
+        id: 54,
+        question: "What is the area of a circle with radius 10 cm?",
+        options: ["314 cm²", "100 cm²", "150 cm²", "120 cm²"],
+        correctAnswer: "314 cm²",
+        answerText:
+          "The area of a circle is πr². Using π ≈ 3.14, the area is 3.14 * 10² = 314 cm².",
+      },
+      {
+        id: 55,
+        question: "What is the next prime number after 31?",
+        options: ["32", "37", "41", "29"],
+        correctAnswer: "37",
+        answerText: "The next prime number after 31 is 37.",
+      },
+      {
+        id: 56,
+        question: "What is the value of x in the equation: 5x - 10 = 20?",
+        options: ["6", "7", "8", "9"],
+        correctAnswer: "6",
+        answerText: "Solving for x, 5x = 20 + 10 = 30, so x = 30 / 5 = 6.",
+      },
+      {
+        id: 57,
+        question: "Which of the following is a factor of 36?",
+        options: ["5", "6", "7", "8"],
+        correctAnswer: "6",
+        answerText: "6 is a factor of 36 because 36 / 6 = 6.",
+      },
+      {
+        id: 58,
+        question:
+          "What is the area of a rectangle with length 10 cm and width 4 cm?",
+        options: ["40 cm²", "30 cm²", "20 cm²", "50 cm²"],
+        correctAnswer: "40 cm²",
+        answerText:
+          "The area of a rectangle is length * width, so 10 * 4 = 40 cm².",
+      },
+      {
+        id: 59,
+        question:
+          "What is the perimeter of a rectangle with length 12 cm and width 5 cm?",
+        options: ["34 cm", "24 cm", "30 cm", "40 cm"],
+        correctAnswer: "34 cm",
+        answerText:
+          "The perimeter of a rectangle is 2(length + width), so 2(12 + 5) = 34 cm.",
+      },
+      {
+        id: 60,
+        question: "What is the square of 15?",
+        options: ["225", "150", "120", "175"],
+        correctAnswer: "225",
+        answerText: "The square of 15 is 15 * 15 = 225.",
+      },
+      {
+        id: 61,
+        question:
+          "If the length of a rectangle is 8 cm and the width is 6 cm, what is the area?",
+        options: ["48 cm²", "40 cm²", "56 cm²", "60 cm²"],
+        correctAnswer: "48 cm²",
+        answerText:
+          "The area of a rectangle is length * width, so 8 * 6 = 48 cm².",
+      },
+      {
+        id: 62,
+        question: "What is the value of 8 × 12?",
+        options: ["96", "104", "112", "120"],
+        correctAnswer: "96",
+        answerText: "8 × 12 = 96.",
+      },
+      {
+        id: 63,
+        question: "What is the value of 50 + 75?",
+        options: ["125", "135", "145", "155"],
+        correctAnswer: "125",
+        answerText: "50 + 75 = 125.",
+      },
+      {
+        id: 64,
+        question: "What is the sum of the angles in a triangle?",
+        options: ["180°", "90°", "360°", "270°"],
+        correctAnswer: "180°",
+        answerText: "The sum of the angles in a triangle is always 180°.",
+      },
+      {
+        id: 65,
+        question: "What is the value of 2 raised to the power of 5?",
+        options: ["32", "16", "64", "128"],
+        correctAnswer: "32",
+        answerText: "2 raised to the power of 5 is 2 * 2 * 2 * 2 * 2 = 32.",
+      },
+      {
+        id: 66,
+        question: "Which of the following is not a factor of 48?",
+        options: ["6", "8", "9", "12"],
+        correctAnswer: "9",
+        answerText: "9 is not a factor of 48, as 48 / 9 is not an integer.",
+      },
+      {
+        id: 67,
+        question: "What is the square root of 169?",
+        options: ["12", "13", "14", "15"],
+        correctAnswer: "13",
+        answerText: "The square root of 169 is 13.",
+      },
+      {
+        id: 68,
+        question: "What is the value of 7 × 6?",
+        options: ["42", "48", "50", "54"],
+        correctAnswer: "42",
+        answerText: "7 × 6 = 42.",
+      },
+      {
+        id: 69,
+        question: "What is the area of a square with side length 9 cm?",
+        options: ["81 cm²", "72 cm²", "63 cm²", "90 cm²"],
+        correctAnswer: "81 cm²",
+        answerText: "The area of a square is side², so 9² = 81 cm².",
+      },
+      {
+        id: 70,
+        question:
+          "What is the perimeter of a triangle with sides 7 cm, 8 cm, and 9 cm?",
+        options: ["24 cm", "26 cm", "27 cm", "28 cm"],
+        correctAnswer: "24 cm",
+        answerText:
+          "The perimeter of a triangle is the sum of its sides, so 7 + 8 + 9 = 24 cm.",
+      },
+      {
+        id: 71,
+        question: "What is the value of 25 + 30 + 45?",
+        options: ["100", "110", "120", "130"],
+        correctAnswer: "100",
+        answerText: "25 + 30 + 45 = 100.",
+      },
+      {
+        id: 72,
+        question: "Which of the following is a factor of 72?",
+        options: ["7", "6", "8", "9"],
+        correctAnswer: "9",
+        answerText: "9 is a factor of 72, as 72 / 9 = 8.",
+      },
+      {
+        id: 73,
+        question:
+          "The sum of the ages of A and B is 60 years. If A is 10 years older than B, what is the age of A?",
+        options: ["35", "40", "45", "50"],
+        correctAnswer: "35",
+        answerText:
+          "Let the age of B be x. The age of A is x + 10. So, x + (x + 10) = 60. Solving, x = 25, so A is 35 years old.",
+      },
+      {
+        id: 74,
+        question: "What is the area of a circle with radius 5 cm?",
+        options: ["78.5 cm²", "60 cm²", "100 cm²", "125 cm²"],
+        correctAnswer: "78.5 cm²",
+        answerText: "The area of a circle is πr², so 3.14 * 5² = 78.5 cm².",
+      },
+      {
+        id: 75,
+        question: "What is the value of 10 × 9?",
+        options: ["90", "80", "70", "60"],
+        correctAnswer: "90",
+        answerText: "10 × 9 = 90.",
+      },
+      {
+        id: 76,
+        question: "What is the next prime number after 41?",
+        options: ["43", "47", "53", "61"],
+        correctAnswer: "43",
+        answerText: "The next prime number after 41 is 43.",
+      },
+      {
+        id: 77,
+        question: "What is the sum of the first 15 even numbers?",
+        options: ["240", "225", "210", "195"],
+        correctAnswer: "240",
+        answerText:
+          "The first 15 even numbers are 2, 4, 6, ..., 30. The sum of these numbers is 240.",
+      },
+      {
+        id: 78,
+        question: "The sum of the angles in a quadrilateral is:",
+        options: ["180°", "360°", "270°", "450°"],
+        correctAnswer: "360°",
+        answerText:
+          "The sum of the angles in a quadrilateral is always 360°.",
+      },
+      {
+        id: 79,
+        question: "What is the value of 5 × 8?",
+        options: ["40", "35", "45", "50"],
+        correctAnswer: "40",
+        answerText: "5 × 8 = 40.",
+      },
+      {
+        id: 80,
+        question:
+          "What is the perimeter of a rectangle with length 6 cm and width 9 cm?",
+        options: ["30 cm", "24 cm", "32 cm", "36 cm"],
+        correctAnswer: "30 cm",
+        answerText:
+          "The perimeter of a rectangle is 2(length + width), so 2(6 + 9) = 30 cm.",
+      },
+      {
+        id: 81,
+        question: "The sum of the first 10 odd numbers is:",
+        options: ["100", "110", "120", "130"],
+        correctAnswer: "100",
+        answerText:
+          "The first 10 odd numbers are 1, 3, 5, ..., 19. The sum of these numbers is 100.",
+      },
+      {
+        id: 82,
+        question: "What is the square of 12?",
+        options: ["144", "124", "130", "115"],
+        correctAnswer: "144",
+        answerText: "The square of 12 is 12 * 12 = 144.",
+      },
+      {
+        id: 83,
+        question: "What is the value of 15 ÷ 3?",
+        options: ["5", "6", "4", "7"],
+        correctAnswer: "5",
+        answerText: "15 ÷ 3 = 5.",
+      },
+      {
+        id: 84,
+        question: "What is the value of 16 × 8?",
+        options: ["128", "130", "140", "120"],
+        correctAnswer: "128",
+        answerText: "16 × 8 = 128.",
+      },
+      {
+        id: 85,
+        question: "What is the value of 9 raised to the power of 2?",
+        options: ["81", "72", "90", "88"],
+        correctAnswer: "81",
+        answerText: "9 raised to the power of 2 is 9 * 9 = 81.",
+      },
+      {
+        id: 86,
+        question: "What is the value of 50 ÷ 5?",
+        options: ["10", "15", "5", "20"],
+        correctAnswer: "10",
+        answerText: "50 ÷ 5 = 10.",
+      },
+      {
+        id: 87,
+        question: "What is the value of 36 ÷ 6?",
+        options: ["6", "8", "5", "7"],
+        correctAnswer: "6",
+        answerText: "36 ÷ 6 = 6.",
+      },
+      {
+        id: 88,
+        question: "What is the value of 15 × 3?",
+        options: ["45", "50", "40", "30"],
+        correctAnswer: "45",
+        answerText: "15 × 3 = 45.",
+      },
+      {
+        id: 89,
+        question: "What is the value of 72 ÷ 9?",
+        options: ["8", "7", "9", "10"],
+        correctAnswer: "8",
+        answerText: "72 ÷ 9 = 8.",
+      },
+      {
+        id: 90,
+        question: "What is the sum of 75 + 25?",
+        options: ["100", "120", "110", "90"],
+        correctAnswer: "100",
+        answerText: "75 + 25 = 100.",
+      },
+      {
+        id: 91,
+        question: "Which of the following is a multiple of 12?",
+        options: ["24", "28", "32", "36"],
+        correctAnswer: "24",
+        answerText: "24 is a multiple of 12, as 12 × 2 = 24.",
+      },
+      {
+        id: 92,
+        question: "What is the value of 100 ÷ 5?",
+        options: ["20", "15", "10", "25"],
+        correctAnswer: "20",
+        answerText: "100 ÷ 5 = 20.",
+      },
+      {
+        id: 93,
+        question: "What is the square root of 64?",
+        options: ["8", "6", "7", "9"],
+        correctAnswer: "8",
+        answerText: "The square root of 64 is 8.",
+      },
+      {
+        id: 94,
+        question: "Which number is divisible by both 3 and 5?",
+        options: ["30", "40", "45", "50"],
+        correctAnswer: "30",
+        answerText: "30 is divisible by both 3 and 5.",
+      },
+      {
+        id: 95,
+        question: "What is the value of 8 × 7?",
+        options: ["56", "54", "64", "72"],
+        correctAnswer: "56",
+        answerText: "8 × 7 = 56.",
+      },
+      {
+        id: 96,
+        question: "What is the perimeter of a square with side length 4 cm?",
+        options: ["16 cm", "12 cm", "14 cm", "10 cm"],
+        correctAnswer: "16 cm",
+        answerText:
+          "The perimeter of a square is 4 times the side length, so 4 × 4 = 16 cm.",
+      },
+      {
+        id: 97,
+        question: "What is the sum of the first 20 prime numbers?",
+        options: ["218", "210", "230", "250"],
+        correctAnswer: "218",
+        answerText: "The sum of the first 20 prime numbers is 218.",
+      },
+      {
+        id: 98,
+        question: "What is the value of 7 × 9?",
+        options: ["63", "56", "72", "48"],
+        correctAnswer: "63",
+        answerText: "7 × 9 = 63.",
+      },
+      {
+        id: 99,
+        question:
+          "What is the area of a rectangle with length 8 cm and width 6 cm?",
+        options: ["48 cm²", "52 cm²", "50 cm²", "45 cm²"],
+        correctAnswer: "48 cm²",
+        answerText:
+          "The area of a rectangle is length × width, so 8 × 6 = 48 cm².",
+      },
+      {
+        id: 100,
+        question:
+          "What is the perimeter of a rectangle with length 12 cm and width 5 cm?",
+        options: ["34 cm", "35 cm", "36 cm", "37 cm"],
+        correctAnswer: "34 cm",
+        answerText:
+          "The perimeter of a rectangle is 2(length + width), so 2(12 + 5) = 34 cm.",
+      },
+      {
+        id: 101,
+        question: "Which of the following numbers is divisible by 4?",
+        options: ["14", "18", "16", "15"],
+        correctAnswer: "16",
+        answerText: "16 is divisible by 4.",
+      },
+      {
+        id: 102,
+        question: "What is the square of 15?",
+        options: ["225", "2250", "200", "220"],
+        correctAnswer: "225",
+        answerText: "The square of 15 is 15 × 15 = 225.",
+      },
+      {
+        id: 103,
+        question: "What is the value of 3 × 8?",
+        options: ["24", "22", "25", "26"],
+        correctAnswer: "24",
+        answerText: "3 × 8 = 24.",
+      },
+      {
+        id: 104,
+        question: "What is the sum of 150 + 75?",
+        options: ["225", "200", "220", "240"],
+        correctAnswer: "225",
+        answerText: "150 + 75 = 225.",
+      },
+      {
+        id: 105,
+        question: "Which of the following is a prime number?",
+        options: ["29", "30", "32", "33"],
+        correctAnswer: "29",
+        answerText: "29 is a prime number.",
+      },
+      {
+        id: 106,
+        question: "What is the sum of 6 + 7 + 8?",
+        options: ["21", "20", "22", "19"],
+        correctAnswer: "21",
+        answerText: "6 + 7 + 8 = 21.",
+      },
+      {
+        id: 107,
+        question: "What is the value of 100 ÷ 4?",
+        options: ["25", "30", "35", "40"],
+        correctAnswer: "25",
+        answerText: "100 ÷ 4 = 25.",
+      },
+      {
+        id: 108,
+        question: "Which number is divisible by 6?",
+        options: ["36", "35", "40", "37"],
+        correctAnswer: "36",
+        answerText: "36 is divisible by 6.",
+      },
+      {
+        id: 109,
+        question: "What is the value of 45 ÷ 9?",
+        options: ["5", "6", "7", "8"],
+        correctAnswer: "5",
+        answerText: "45 ÷ 9 = 5.",
+      },
+      {
+        id: 110,
+        question: "What is the value of 18 × 5?",
+        options: ["90", "95", "100", "85"],
+        correctAnswer: "90",
+        answerText: "18 × 5 = 90.",
+      },
+    ];
+
+    // Constants
+    let currentQuestionIndex = 0;
+    let correctAnswer = 0;
+    let wronganswer = 0;
+    let score = 0;
+    let skippedquestion = 0;
+    const answermap = new Map();
+
+    // DOM Elements
+    const questionSN = document.getElementById("QuestionSN");
+    const countdownTimer = document.getElementById("Countdowntimer");
+    const questionContent = document.getElementById("question-content");
+
+    // Timer Initialization
+    const duration = 90 * 60 * 1000; // 90 minutes in milliseconds
+    const targetTime = new Date().getTime() + duration;
+
+    // submit the quiz
+    function SubmitTheQuiz() {
+      let correctAnswer = 0;
+      let wrongAnswer = 0;
+      console.log("Submit button clicked!");
+
+      // Ensure answermap has entries
+      // if (answermap.size === 0) {
+      //   alert("No questions attempted.");
+      //   return;
+      // }
+
+      // Iterate over user responses
+      for (const [key, value] of answermap.entries()) {
+        console.log(`${key}: ${value}`); // Debugging log
+        const currentQuestion = questions[key]; // Retrieve the question
+
+        // Check if the user's answer matches the correct answer
+        if (value === currentQuestion.correctAnswer) {
+          correctAnswer++;
+        } else {
+          wrongAnswer++;
+        }
+      }
+
+      // Calculate results
+      const totalQuestions = questions.length;
+      const skippedQuestions = totalQuestions - (correctAnswer + wrongAnswer);
+      const score = correctAnswer - 0.33 * wrongAnswer; 
+
+      // Replace body content with results
+      document.body.innerHTML = `
+        <div style="text-align: center; margin: 50px;">
+          <h1>Quiz Results</h1>
+          <p><strong>Total Questions:</strong> ${totalQuestions}</p>
+          <p><strong>Correct Answers:</strong> ${correctAnswer}</p>
+          <p><strong>Wrong Answers:</strong> ${wrongAnswer}</p>
+          <p><strong>Skipped Questions:</strong> ${skippedQuestions}</p>
+          <p><strong>Final Score:</strong> ${score.toFixed(2)}</p>
+        </div>
+      `;
+    }
+
+    // Load question
+    function loadQuestion() {
+      const currentQuestion = questions[currentQuestionIndex];
+      document.getElementById(currentQuestionIndex+1).style.backgroundColor = "green";
+      questionSN.textContent = currentQuestionIndex + 1;
+      questionContent.textContent = currentQuestion.question;
+
+      // Update options
+      currentQuestion.options.forEach((option, index) => {
+        const optionDiv = document.getElementById(`option-${index + 1}`);
+        optionDiv.style.backgroundColor="";
+        optionDiv.textContent = option;
+      });
+    }
+
+    function loadQuestionByChoice(chosenQuestion) {
+      if (currentQuestionIndex >= 0) {
+        document.getElementById(currentQuestionIndex+1).style.backgroundColor = "yellow"; 
+        answermap[currentQuestionIndex + 1] = -1; 
+      }
+
+      // Retrieve and display the chosen question
+      const currentQuestion = questions[chosenQuestion - 1];
+      currentQuestionIndex = chosenQuestion - 1;
+
+      // Update question number and content
+      questionSN.textContent = `Question ${chosenQuestion}`;
+      questionContent.textContent = currentQuestion.question;
+
+      // Update options
+      currentQuestion.options.forEach((option, index) => {
+        const optionDiv = document.getElementById(`option-${index + 1}`);
+        optionDiv.textContent = option;
+      });
+
+      // Highlight the current question number
+      document.getElementById(chosenQuestion).style.backgroundColor = "green"; 
+    }
+
+
+    // Check answer
+    function checkAnswer(selectedOption) {
+      const currentQuestion = questions[currentQuestionIndex];
+      const selectedAnswer = document.getElementById(
+        `option-${selectedOption}`
+      ).textContent;
+      document.getElementById(
+        `option-${selectedOption}`
+      ).style.backgroundColor="blue";
+
+      document.getElementById(currentQuestionIndex + 1).style.backgroundColor = "blue";
+      answermap.set(currentQuestionIndex, selectedAnswer);
+    }
+
+    // skip question
+    function SkipTheQuestion() {
+      // document.getElementById(currentQuestionIndex)
+      const attemptedDiv = document.getElementById(currentQuestionIndex + 1);
+      attemptedDiv.style.backgroundColor = "yellow";
+      currentQuestionIndex++;
+      skippedquestion++;
+      
+      if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+      }
+    }
+
+    function NextQuestion() {
+      const attemptedDiv = document.getElementById(currentQuestionIndex + 1);
+      attemptedDiv.style.backgroundColor = "blue";
+      currentQuestionIndex++;
+      skippedquestion++;
+     
+      if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+      } 
+    }
+
+    // Timer update
+    function updateTimer() {
+      const now = new Date().getTime();
+      const remainingTime = targetTime - now;
+
+      if (remainingTime <= 0) {
+        countdownTimer.textContent = "Time's Up!";
+        clearInterval(intervalId);
+        return;
+      }
+
+      const hours = Math.floor((remainingTime / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((remainingTime / (1000 * 60)) % 60);
+      const seconds = Math.floor((remainingTime / 1000) % 60);
+
+      countdownTimer.textContent = `${String(hours).padStart(
+        2,
+        "0"
+      )}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
+        2,
+        "0"
+      )}`;
+    }
+
+    // Start the timer and load the first question
+    const intervalId = setInterval(updateTimer, 1000);
+    loadQuestion();
+    updateTimer();
+  </script>
+</body>
+
+</html>
