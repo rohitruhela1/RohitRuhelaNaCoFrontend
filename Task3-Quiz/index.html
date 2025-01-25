@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Countdown Timer</title>
   <style>
+
+    /* body css */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -18,6 +20,7 @@
       min-height: 100vh;
     }
 
+    /* main container include whole quiz app */
     .main-container {
       text-align: center;
       width: 100%;
@@ -29,6 +32,7 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
+    /* heading include timer question number */
     .heading {
       display: flex;
       flex-wrap: wrap;
@@ -44,7 +48,7 @@
     #submit-btn {
       margin-left: auto;
     }
-
+    /* timer */
     #Countdowntimer {
       font-weight: bold;
       font-size: 1.2em;
@@ -59,6 +63,7 @@
       font-size: 1.2rem;
     }
 
+    /* horizontal line added css */
     hr.horizontal_line {
       border: 0;
       height: 2px;
@@ -66,6 +71,7 @@
       margin: 20px 0;
     }
 
+    /* main quiz contianer */
     .quiz-container {
       max-width: 600px;
       margin: 20px auto;
@@ -74,12 +80,13 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-
+    /* question css */
     .question {
       font-size: 1.2rem;
       margin-bottom: 20px;
     }
 
+    /* option css */
     .option {
       padding: 10px;
       background-color: #e0e0e0;
@@ -93,12 +100,13 @@
       background-color: #ccc;
     }
 
+    /* next button button */
     .submitorskip {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
     }
-
+    /* next or skip buttons  */
     .submitorskip button {
       margin: 5px;
       padding: 5px;
@@ -114,7 +122,7 @@
       font-weight: bold;
       cursor: pointer;
     }
-
+    /* submit button css */
     .submit-btn{
       margin: 5px;
       padding: 5px;
@@ -127,15 +135,14 @@
       font-weight: bold;
       cursor: pointer;
     }
-
+    /* attempted css */
     .Show-attempted {
       display: flex;
       flex-wrap: wrap;
-      /* Allows wrapping of items */
       margin: 5px;
       padding: 5px;
     }
-
+    /* attempted divs */
     .Show-attempted div {
       margin: 5px;
       padding: 5px;
@@ -158,6 +165,7 @@
       justify-content: center;
       align-items: center;
     }
+    /*divs for color-configure */
     .color-configure div{
       margin: 5px;
       padding: 5px;
@@ -197,6 +205,7 @@
           <div class="option" id="option-4" onclick="checkAnswer(4)"></div>
         </div>
       </div>
+      <!-- skip and next button  -->
       <div class="submitorskip">
         <button class="skip-btn" id="skip-btn" onclick="SkipTheQuestion()">
           Skip
@@ -205,6 +214,7 @@
           Next
         </button>
       </div>
+    <!-- submti button -->
       <div class="submit-btn-div">
         <button class="submit-btn" id="submit-btn" onclick="SubmitTheQuiz()">
           Submit
@@ -321,6 +331,7 @@
         <div id="105" onclick="loadQuestionByChoice(105)">105</div>
       </div>
       <hr class="horizontal_line" />
+      <!-- color configutaion -->
       <div class="color-configure">
         <div style="background-color: blue;">question attempted</div>
         <div style="background-color: yellow;">Skipped Question</div>
@@ -1206,7 +1217,8 @@
         optionDiv.textContent = option;
       });
     }
-
+    
+    // funtion call when user want to jump random question
     function loadQuestionByChoice(chosenQuestion) {
         if (currentQuestionIndex >= 0) {
           if (!answermap.has(currentQuestionIndex)) {
@@ -1278,6 +1290,7 @@
       }
     }
 
+    // next button 
     function NextQuestion() {
       // Check if the current question has been answered
       if (!answermap.has(currentQuestionIndex)) {
@@ -1296,7 +1309,6 @@
         loadQuestion();
       } 
     }
-
 
     // Timer update
     function updateTimer() {
