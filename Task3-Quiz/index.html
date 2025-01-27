@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Countdown Timer</title>
+
   <style>
 
     /* body css */
@@ -110,14 +111,14 @@
     .submitorskip button {
       margin: 5px;
       padding: 5px;
-      width: 80px;
+      width: 200px;
       height: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #24b73a;
       border: 1px solid #ccc;
-      border-radius: 25px;
+      border-radius: 20px;
       font-size: 1rem;
       font-weight: bold;
       cursor: pointer;
@@ -126,7 +127,7 @@
     .submit-btn{
       margin: 5px;
       padding: 5px;
-      width: 80px;
+      width: 200px;
       height: 40px;
       background-color: #f83b3b;
       border: 1px solid #ccc;
@@ -180,6 +181,7 @@
     }
     
   </style>
+
 </head>
 
 <body>
@@ -210,16 +212,16 @@
       <!-- skip and next button  -->
       <div class="submitorskip">
         <button class="skip-btn" id="skip-btn" onclick="SkipTheQuestion()">
-          Skip
+          Skip Question
         </button>
-        <button class="skip-btn" id="next-btn" onclick="NextQuestion()">
-          Next
+        <button style="padding: 10px;" class="skip-btn" id="next-btn"  onclick="NextQuestion()">
+          Save Answer & Next
         </button>
       </div>
     <!-- submti button -->
       <div class="submit-btn-div">
         <button class="submit-btn" id="submit-btn" onclick="SubmitTheQuiz()">
-          Submit
+          Submit Quiz
         </button>
       </div>
 
