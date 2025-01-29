@@ -1,1 +1,80 @@
-    
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RGB Color Generator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/rgb.style.css" />
+  </head>
+  <body>
+    <!-- Navbar will be inserted here -->
+    <div id="navbar"></div>
+
+    <!-- Main Content for Home Page -->
+    <!-- Main Content for Home Page -->
+<div class="container">
+  <div class="row">
+    <!-- RGB Theory Section -->
+    <div class="col-md-6">
+      <div class="card rgb-theory-card">
+        <h2>
+          <span style="color: red;">Red</span> 
+          <span style="color: green;">Green</span> 
+          <span style="color: blue;">Blue</span> (RGB)
+        </h2>
+        <p>
+          <strong><span style="color: red;">RGB</span></strong> is an 
+          <em>additive color projected light color model</em> where each color is stored in 
+          <strong>one byte</strong>. All possible combinations of 
+          <span style="color: red;">red</span>, 
+          <span style="color: green;">green</span>, and 
+          <span style="color: blue;">blue</span> give 
+          2<sup>24</sup> = 16,777,216 different colors.
+        </p>
+        <p>
+          Starting with (<span style="color: red;">Red</span>, 
+          <span style="color: green;">Green</span>, 
+          <span style="color: blue;">Blue</span>) = (0,0,0) (black), different color "lights" are 
+          <strong>added</strong> to produce visible colors.
+        </p>
+      </div>
+    </div>
+
+    <!-- Color Selection Section -->
+    <div class="col-md-6">
+      <div class="card color-selection-card">
+        <h2>
+          <span style="color: red;">Red</span> 
+          <span style="color: green;">Green</span> 
+          <span style="color: blue;">Blue</span> (RGB)
+        </h2>
+        <p><strong>Select <span style="color: red;">R</span><span style="color: green;">G</span><span style="color: blue;">B</span> values:</strong></p>
+
+        <label for="red">Red:</label>
+        <select id="red"></select>
+
+        <label for="green">Green:</label>
+        <select id="green"></select>
+
+        <label for="blue">Blue:</label>
+        <select id="blue"></select>
+
+        <button id="generate-btn">Generate Random Colors</button>
+
+        <div id="color-display" class="color-box">RGB(255, 255, 255)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- JavaScript to load the navbar and set values for the color selectors -->
+    <script src="./js/rgb.script.js"></script>
+  </body>
+</html>

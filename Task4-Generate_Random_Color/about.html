@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>About Page - Color Generator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/about.style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <!-- About Section -->
+    <div class="container container-additional-css">
+      <h1 class="text-center">About Our Color Generator</h1>
+      <p class="text-center">
+        We provide an interactive tool to generate random RGB and CMYK colors
+        along with their HEX values.
+      </p>
+
+      <!-- RGB & CMYK Info Section -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading text-center">
+              <h3>RGB Color Generator</h3>
+            </div>
+            <div class="panel-body">
+              <p>
+                RGB (Red, Green, Blue) is a color model used for digital
+                displays. You can generate random RGB colors and get their HEX
+                values.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="panel panel-success">
+            <div class="panel-heading text-center">
+              <h3>CMYK Color Generator</h3>
+            </div>
+            <div class="panel-body">
+              <p>
+                CMYK (Cyan, Magenta, Yellow, Black) is used in printing.
+                Generate CMYK colors and get their respective values.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(function () {
+        $("#navbar").load("navbar.html");
+      });
+    </script>
+  </body>
+</html>

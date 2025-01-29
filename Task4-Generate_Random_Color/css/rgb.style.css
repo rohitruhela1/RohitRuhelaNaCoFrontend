@@ -1,0 +1,43 @@
+/* Style for RGB Theory Card */
+.rgb-theory-card {
+    background-color: #f8d7da; /* Light Red/Pink */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  /* Style for Color Selection Card */
+  .color-selection-card {
+    background-color: #d4edda; /* Light Green */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  /* Dropdown Styling */
+  select {
+    width: 100px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  /* Button Styling */
+  button {
+    background-color: #800080; /* Dark Purple */
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  /* Color Display Box */
+  .color-box {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    text-align: center;
+    font-weight: bold;
+    min-height: 50px;
+  }
+  

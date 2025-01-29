@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Web Safe Colors</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/style.web-safe-colors.style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <!-- Main Content -->
+    <div class="container text-center">
+      <div class="card">
+        <div class="card-head-css">
+          <h2>Web Safe Colors</h2>
+        </div>
+        <div class="Web-safe-explanation-div">
+          Web Safe Colors are a set of 216 standardized colors that display
+          consistently across different screens and browsers. They are created
+          using specific RGB values (00, 33, 66, 99, CC, FF) to ensure
+          uniformity. While modern displays support millions of colors, Web Safe
+          Colors are still useful for maintaining consistency in web design and
+          branding.
+        </div>
+        <button class="btn btn-primary" id="generate-all-colors" >
+          Display Web Safe Colors
+        </button>
+        <div id="colorContainer" class="row"></div>
+      </div>
+    </div>
+
+    <!-- JavaScript to generate colors -->
+    <script src="./js/web-safe-colors.script.js"></script>
+  </body>
+</html>
