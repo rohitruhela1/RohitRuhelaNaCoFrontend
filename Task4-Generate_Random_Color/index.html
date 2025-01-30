@@ -12,6 +12,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="html" href="./Navbar.html">
   </head>
   <body>
     <!-- Navbar  -->
@@ -54,6 +55,11 @@
       
 
     <!-- JavaScript  -->
-    <script src="./js/index.script.js"></script>
+    <script>
+      // include navbar from navbar.html
+      $(function () {
+          $("#include-navbar").load("Navbar.html");
+      });
+    </script>
   </body>
 </html>
