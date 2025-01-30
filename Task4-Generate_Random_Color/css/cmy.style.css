@@ -62,7 +62,7 @@ button {
     select {
         width: 100%;
     }
-    button {
+    .generate-btn {
         width: 100%;
     }
 }
