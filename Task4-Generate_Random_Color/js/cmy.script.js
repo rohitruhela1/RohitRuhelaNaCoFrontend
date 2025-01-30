@@ -51,7 +51,7 @@ window.onload = function() {
 };
 
 $(function () {
-    $("#navbar").load("navbar.html");
+    $("#navbar").load("Navbar.html");
   });
 
 // Generate color based on selection

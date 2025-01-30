@@ -67,5 +67,5 @@ document.getElementById('generate-btn').addEventListener('click', () => {
 
 // Load the navbar
 $(function() {
-  $("#navbar").load("navbar.html");
+  $("#navbar").load("Navbar.html");
 });

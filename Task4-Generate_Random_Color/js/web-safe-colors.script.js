@@ -241,5 +241,5 @@ const btn = document.getElementById("generate-all-colors");
 btn.addEventListener("click", displayColors);
 
 $(function () {
-  $("#navbar").load("navbar.html");
+  $("#navbar").load("Navbar.html");
 });
