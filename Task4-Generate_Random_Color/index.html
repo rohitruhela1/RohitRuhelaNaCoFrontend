@@ -9,56 +9,49 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="html" href="./Navbar.html">
   </head>
   <body>
-    <!-- Navbar  -->
+    <!-- Navbar -->
     <div id="include-navbar"></div>
 
     <!-- Main Content for Home Page -->
-    <div class="addtional-card-css-home">
-          <div class="container mt-5 addition-css-home-card">
-            <!-- Common Header -->
-            <div class="card mb-4 bg-primary card-header-addtition-css" style="padding-top:15px; padding-bottom: 15px;">
-              <div class="card-header text-white ">
-                Computer Graphic Model
-              </div>
-            </div>
-      
-            <!-- Row for the two cards -->
-            <div class="row">
-              <div class="col-12 col-md-6 mb-4 mt-5">
-                <!-- First Card -->
-                <div class="card mt-5 rgb-cmky-card-css">
-                  <div class="card-body ">
-                    <h5 class="card-title">RGB</h5>
-                    <h5 style="font-size: 1.8rem !important;">Red Green Blue</h5>
-                  </div>
-                </div>
-              </div>
-      
-              <div class="col-12 col-md-6 mb-4">
-                <!-- Second Card -->
-                <div class="card rgb-cmky-card-css">
-                  <div class="card-body">
-                    <h5 class="card-title ">CMYK</h5>
-                    <h5 style="font-size: 1.8rem !important;"> Cyan Magenta Yellow Black</h5>
-                  </div>
-                </div>
-              </div>
+    <div class="container mt-5">
+      <!-- Common Header -->
+      <div class="card mb-4 bg-primary text-white  py-4 card-upeer-header">
+        <h1>Computer Graphic Models</h1>
+      </div>
+
+      <!-- Row for the two cards -->
+      <div class="row">
+        <!-- RGB Card -->
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card text-center py-4">
+            <div class="card-body">
+              <h2 class="card-title">RGB</h2>
+              <h3 class="card-subtitle mb-2 text-muted">Red Green Blue</h3>
             </div>
           </div>
-      </div>
-      
+        </div>
 
-    <!-- JavaScript  -->
+        <!-- CMYK Card -->
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card text-center py-4">
+            <div class="card-body">
+              <h2 class="card-title">CMYK</h2>
+              <h3 class="card-subtitle mb-2 text-muted">Cyan Magenta Yellow Black</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
     <script>
-      // include navbar from navbar.html
+      // Include navbar from Navbar.html
       $(function () {
-          $("#include-navbar").load("Navbar.html");
+        $("#include-navbar").load("Navbar.html");
       });
     </script>
   </body>

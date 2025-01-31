@@ -1,24 +1,25 @@
 /* Site Links */
 .Site-links-additional {
-  margin: 20px;
-  padding: 20px;
+  /* margin: 20px;
+  padding: 20px; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
+  gap: 10px;
   justify-content: center;
   text-align: center;
 }
 
 /* Each Link */
 .Site-links-additional a {
-  display: flex;
+  display: flex;  
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
+  width: 130px;
   color: black;
   font-size: large;
-  padding: 12px;
-  border: 1px solid grey;
+  padding: 6px;
+  /* border: 1px solid grey; */
   border-radius: 10px;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
@@ -35,7 +36,7 @@
 /* Card */
 .card {
   background-color: lightblue;
-  margin: 20px;
+  margin-top: 10px;
   padding: 20px;
   min-height: 15rem;
   display: flex;
@@ -44,12 +45,6 @@
   font-size: xx-large;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
-    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
-    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
-    100px 100px 80px rgba(0, 0, 0, 0.07);
 }
 
 /* Responsive Design */

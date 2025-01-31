@@ -11,9 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./css/rgb.style.css" />
-    <style>
-      
-    </style>
+    <style></style>
   </head>
   <body>
     <div id="navbar"></div>
@@ -22,57 +20,68 @@
       <div class="row">
         <div class="col-md-6 col-sm-12">
           <div class="card rgb-theory-card">
-            <h2>
-              <span style="color: red;">Red</span> 
-              <span style="color: green;">Green</span> 
-              <span style="color: blue;">Blue</span> (RGB)
+            <h2 class="rgb-theory-card-header">
+              <span style="color: red">Red</span>
+              <span style="color: green">Green</span>
+              <span style="color: blue">Blue</span> (RGB)
             </h2>
-            <p>
-              <strong><span style="color: red;">RGB</span></strong> is an 
-              <em>additive color projected light color model</em> where each color is stored in 
-              <strong>one byte</strong>. All possible combinations of 
-              <span style="color: red;">red</span>, 
-              <span style="color: green;">green</span>, and 
-              <span style="color: blue;">blue</span> give 
-              2<sup>24</sup> = 16,777,216 different colors.
+            <p class="rgb-theory-card-lower">
+              <strong><span style="color: red">RGB</span></strong> is an
+              <em>additive color projected light color model</em> where each
+              color is stored in <strong>one byte</strong>. All possible
+              combinations of <span style="color: red">red</span>,
+              <span style="color: green">green</span>, and
+              <span style="color: blue">blue</span> give 2<sup>24</sup> =
+              16,777,216 different colors.
             </p>
           </div>
         </div>
         <div class="col-md-6 col-sm-12">
           <div class="card color-selection-card">
-            <h2>
-              <span style="color: red;">Red</span> 
-              <span style="color: green;">Green</span> 
-              <span style="color: blue;">Blue</span> (RGB)
+            <h2 class="color-selection-card-header">
+              <span style="color: red">Red</span>
+              <span style="color: green">Green</span>
+              <span style="color: blue">Blue</span> (RGB)
             </h2>
-            <p><strong>Select RGB values:</strong></p>
-            <label for="red">Red:</label>
-            <select id="red"></select>
-            <label for="green">Green:</label>
-            <select id="green"></select>
-            <label for="blue">Blue:</label>
-            <select id="blue"></select>
-            
-            
-            <!-- Table for RGB Values and Display -->
-            <table class="color-table">
-              <tr>
-                <th><span style="color: red;">RGB</span> Float Values</th>
-                <th><span style="color: red;">RGB</span> Hexadecimal Values</th>
-                <th>Display</th>
-              </tr>
-              <tr>
-                <td id="rgb-float-values">(0.53, 0.11, 0.82)</td>
-                <td id="hex-display">#861dd0</td>
-                <td><div id="color-display" class="color-display-box"></div></td>
-              </tr>
-            </table>
-          </div>
-          <button id="generate-btn">Generate Colors</button>
-        </div>
-        
-      </div>
+            <div class="color-selection-card-lower">
+              <p><strong>Select RGB values:</strong></p>
+              <label for="red">Red:</label>
+              <select id="red"></select>
+              <label for="green">Green:</label>
+              <select id="green"></select>
+              <label for="blue">Blue:</label>
+              <select id="blue"></select>
 
+              <!-- Table for RGB Values and Display -->
+              <table class="color-table">
+                <tr>
+                  <th><span style="color: red">RGB</span> Float Values</th>
+                  <th>
+                    <span style="color: red">RGB</span> Hexadecimal Values
+                  </th>
+                  <th>Display</th>
+                </tr>
+                <tr>
+                  <td id="rgb-float-values">(0.53, 0.11, 0.82)</td>
+                  <td id="hex-display">#861dd0</td>
+                  <td>
+                    <div id="color-display" class="color-display-box"></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <!-- Generate Button for Small Screens -->
+            <!-- <div class="d-block d-md-none">
+              <button id="generate-btn">Generate Colors</button>
+            </div> -->
+          </div>
+
+          <!-- Generate Button for Large Screens -->
+        </div>
+        <div class="d-none d-md-block text-center">
+          <button id="generate-btn">Generate Random Colors</button>
+        </div>
+      </div>
     </div>
     <script src="./js/rgb.script.js"></script>
   </body>

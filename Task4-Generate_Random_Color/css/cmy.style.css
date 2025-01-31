@@ -1,34 +1,53 @@
 /* CMY Theory Card */
 .cmy-theory-card {
-    background-color: #e0e0e0; /* Light Gray */
-    padding: 20px;
-    border-radius: 10px;
+    /* padding: 20px; */
+    border: 1px solid #f8d7da;
+}
+
+.cmy-theory-card-header{
+    background-color: #f8d7da;
+    padding: 15px; 
+    margin-top: -3px;
+}
+
+.cmy-theory-card-lower{
+    margin: 20px;
+  padding: 5px;
+  font-size: 1.5rem;
 }
 
 /* CMY Selection Card */
 .color-selection-card {
-    background-color: #f5f5f5; /* Lighter Gray */
-    padding: 20px;
-    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid  #d4edda;
 }
+
+.cmy-selection-card-header{
+    background-color: #d4edda; /* Light Green */
+  padding: 15px; /* Add padding for better spacing */
+  margin-top:-3px;
+}
+
 
 /* Dropdown Styling */
 select {
-    width: 100px;
+    width: 50px;
     padding: 5px;
     margin-bottom: 10px;
 }
 
 /* Button Styling */
 button {
-    background-color: #000; /* Black */
+    background-color: #800080; /* Dark Purple */
     color: white;
-    padding: 10px;
+    padding: 10px 20px;
     border: none;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
-}
+    margin-top: 10px;
+    text-align: center;
+  }
 
 /* Color Display Box */
 .color-display-box {
@@ -56,13 +75,15 @@ button {
 
 /* Responsive Styling */
 @media (max-width: 768px) {
-    .cmy-theory-card, .color-selection-card {
-        text-align: center;
-    }
-    select {
-        width: 100%;
-    }
-    .generate-btn {
-        width: 100%;
+    /* select {
+        width: 15%;
+    } */
+}
+
+@media (min-width: 769px) {
+    #generate-btn {
+      display: block;
+      margin: 20px auto;
+      width: auto;
     }
 }

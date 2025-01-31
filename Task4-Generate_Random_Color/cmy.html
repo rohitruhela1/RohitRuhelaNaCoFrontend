@@ -1,69 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>CMY Color Generator</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./css/cmy.style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="./css/cmy.style.css" />
+  </head>
+  <body>
     <!-- Navbar -->
     <div id="navbar"></div>
 
     <div class="container">
-        <div class="row">
-            <!-- CMY Theory Section -->
-            <div class="col-md-6 col-sm-12">
-                <div class="card cmy-theory-card">
-                    <h2>
-                        <span style="color: cyan;">Cyan</span> 
-                        <span style="color: magenta;">Magenta</span> 
-                        <span style="color: yellow;">Yellow</span> (CMY)
-                    </h2>
-                    <p>
-                        <strong>CMY</strong> is a <em>subtractive color model</em> used in color printing. 
-                        It uses **Cyan, Magenta, and Yellow** to create different colors by subtracting brightness from white.
-                    </p>
-                </div>
-            </div>
-
-            <!-- CMY Color Selection -->
-            <div class="col-md-6 col-sm-12">
-                <div class="card color-selection-card">
-                    <h2>Select <span style="color: black;">CMY</span> Values:</h2>
-
-                    <label for="cyan">Cyan:</label>
-                    <select id="cyan"></select>
-
-                    <label for="magenta">Magenta:</label>
-                    <select id="magenta"></select>
-
-                    <label for="yellow">Yellow:</label>
-                    <select id="yellow"></select>
-
-                    <!-- Table for CMY & RGB Values -->
-                    <table class="color-table">
-                        <tr>
-                            <th><span style="color: black;">CMY Float Values</span></th>
-                            <th><span style="color: black;">RGB Equivalent</span></th>
-                            <th>Display</th>
-                        </tr>
-                        <tr>
-                            <td id="cmy-float-values">(0, 0, 0)</td>
-                            <td id="rgb-equivalent">RGB(255, 255, 255)</td>
-                            <td><div id="color-display" class="color-display-box"></div></td>
-                        </tr>
-                    </table>
-                </div>
-                <button id="generate-btn" class="generate-btn">Generate Color</button>
-            </div>
+      <div class="row">
+        <!-- CMY Theory Section -->
+        <div class="col-md-6 col-sm-12">
+          <div class="card cmy-theory-card">
+            <h2 class="cmy-theory-card-header">
+              <span style="color: cyan">Cyan</span>
+              <span style="color: magenta">Magenta</span>
+              <span style="color: yellow">Yellow</span> (CMY)
+            </h2>
+            <p class="cmy-theory-card-lower">
+              <strong>CMY</strong> is a <em>subtractive color model</em> used in
+              color printing. It uses **Cyan, Magenta, and Yellow** to create
+              different colors by subtracting brightness from white.
+            </p>
+          </div>
         </div>
+
+        <!-- CMY Color Selection -->
+        <div class="col-md-6 col-sm-12">
+          <div class="card color-selection-card">
+            <h2 class="cmy-selection-card-header">
+              <span style="color: cyan">Cyan</span>
+              <span style="color: magenta">Magenta</span>
+              <span style="color: yellow">Yellow</span> (CMY)
+            </h2>
+            <div class="cmy-theory-card-lower">
+              <h2>Select <span style="color: black">CMY</span> Values:</h2>
+
+              <label for="cyan">Cyan:</label>
+              <select id="cyan"></select>
+
+              <label for="magenta">Magenta:</label>
+              <select id="magenta"></select>
+
+              <label for="yellow">Yellow:</label>
+              <select id="yellow"></select>
+
+              <!-- Table for CMY & RGB Values -->
+              <table class="color-table">
+                <tr>
+                  <th><span style="color: black">CMY Float Values</span></th>
+                  <th><span style="color: black">RGB Equivalent</span></th>
+                  <th>Display</th>
+                </tr>
+                <tr>
+                  <td id="cmy-float-values">(0, 0, 0)</td>
+                  <td id="rgb-equivalent">RGB(255, 255, 255)</td>
+                  <td>
+                    <div id="color-display" class="color-display-box"></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="generate-btn" style="text-align: center">
+        <button id="generate-btn">Generate Color</button>
+      </div>
     </div>
 
     <script src="./js/cmy.script.js"></script>
-</body>
+  </body>
 </html>

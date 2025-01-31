@@ -1,54 +1,63 @@
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
 }
 
-.addtional-card-css-home {
-    box-shadow:
-      2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
-      6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-      12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
-      22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-      41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
-      100px 100px 80px rgba(0, 0, 0, 0.07);
-    margin: 15px;
-    padding-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: xx-large;
-  }
-
-  .addition-css-home-card{
-    border: 1px solid black;
-    min-height: 30rem;
-    margin-top: 30px;
-  }
-
-  .card-header-addtition-css{
-    min-height: 8rem;
-    text-align: center;
-  }
-  
-  .card {
-    box-shadow: none;
-  }
-
-  .rgb-cmky-card-css{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 30px;
-  }
-  
-  .card-body {
-    text-align: center;
-  }
-  
-  .card-title {
-    font-size: 2.5rem; 
-  }
-  
-h5 {
-    font-size: 2.5rem; 
+.container {
+  max-width: 90%;
+  border: 2px solid rgb(62, 171, 207);
+  padding: 0; /* Remove default padding */
 }
-  
+
+.card-upeer-header {
+  padding-left: 25px;
+  margin-left: -15px; /* Offset Bootstrap's default negative margin */
+  margin-right: -15px; /* Offset Bootstrap's default negative margin */
+}
+
+.card {
+  border: none;
+}
+
+.card.bg-primary {
+  background-color: rgb(62, 171, 207) !important;
+  border-radius: 0; /* Remove border-radius to ensure it touches the edges */
+}
+
+.card.bg-primary h1 {
+  margin: 0;
+  font-size: 3rem;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-title {
+  font-size: 3rem;
+  text-decoration:dotted underline;
+  color: #333;
+}
+
+.card-subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #666;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.py-4 {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.mt-5 {
+  margin-top: 3rem !important;
+}
