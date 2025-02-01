@@ -1,0 +1,33 @@
+/* Adjust font size and padding for medium screens */
+@media (max-width: 992px) {
+    .navbar {
+      font-size: 1.6rem; /* Slightly smaller font */
+      padding: 8px;
+    }
+    .navbar-brand {
+      font-size: 2rem !important;
+      margin-left: 10px;
+    }
+    .navbar-toggle {
+      padding: 10px; /* Make toggle button easier to click */
+    }
+  }
+  
+  /* Adjust navbar for small screens */
+  @media (max-width: 768px) {
+    .navbar {
+      font-size: 1.4rem;
+      padding: 6px;
+    }
+    .navbar-brand {
+      font-size: 1.8rem !important;
+    }
+    .navbar-nav {
+      text-align: center; /* Center align links on small screens */
+    }
+    .navbar-nav > li {
+      float: none;
+      display: block;
+    }
+  }
+  

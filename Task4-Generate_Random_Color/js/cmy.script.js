@@ -1,72 +1,112 @@
-// Function to populate CMY values from 0 to 100 in the dropdowns
-function setValues() {
-    const selectors = ['cyan', 'magenta', 'yellow'];
-    selectors.forEach(selector => {
-        const dropdown = document.getElementById(selector);
-        for (let i = 0; i <= 100; i++) {
-            const option = document.createElement("option");
-            option.value = i / 100; // Convert to decimal (0-1)
-            option.textContent = i;
-            dropdown.appendChild(option);
-        }
-    });
-}
-
-// Function to convert CMY to RGB
-function cmyToRgb(c, m, y) {
-    let r = 255 * (1 - c);
-    let g = 255 * (1 - m);
-    let b = 255 * (1 - y);
-    return `RGB(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
-}
-
-// Function to store CMY color in local storage
-function storeColor(c, m, y) {
-    const color = { cyan: c, magenta: m, yellow: y };
-    localStorage.setItem('lastCMYColor', JSON.stringify(color));
-}
-
-// Function to retrieve and display the last color from local storage
-function displayLastColor() {
-    const lastColor = JSON.parse(localStorage.getItem('lastCMYColor'));
-    if (lastColor) {
-        const { cyan, magenta, yellow } = lastColor;
-        const rgbColor = cmyToRgb(cyan, magenta, yellow);
-
-        document.getElementById('cmy-float-values').textContent = `CMY(${cyan.toFixed(2)}, ${magenta.toFixed(2)}, ${yellow.toFixed(2)})`;
-        document.getElementById('rgb-equivalent').textContent = rgbColor;
-        document.getElementById('color-display').style.backgroundColor = rgbColor;
-
-        // Set the dropdown values
-        document.getElementById('cyan').value = cyan;
-        document.getElementById('magenta').value = magenta;
-        document.getElementById('yellow').value = yellow;
+// Function to generate a random CMY color
+function getRandomColor() {
+    let c = Math.floor(Math.random() * 256);
+    let m = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    return { c, m, y, cmy: `cmy(${c}, ${m}, ${y})`, hex: cmyToHex(c, m, y) };
+  }
+  
+  // Function to convert CMY to Hex
+  function cmyToHex(c, m, y) {
+    let r = 255 - c;
+    let g = 255 - m;
+    let b = 255 - y;
+    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`;
+  }
+  
+  // Function to generate and display 10 random colors in a table
+  function generateRandomColors() {
+    const container = document.getElementById("random-colors-container");
+  
+    // Clear previous table if it exists
+    container.innerHTML = "";
+  
+    // Create a new table
+    const table = document.createElement("table");
+    table.classList.add("random-colors-table");
+  
+    // Add table header
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>CMY Values</th>
+          <th>Hexadecimal</th>
+          <th>Color</th>
+        </tr>
+      </thead>
+    `;
+  
+    const tbody = document.createElement("tbody");
+  
+    for (let i = 0; i < 10; i++) {
+      const color = getRandomColor();
+  
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${color.cmy}</td>
+        <td>${color.hex}</td>
+        <td>
+          <div class="random-color-box" style="background-color: ${color.hex}; width: 40px; height: 40px;"></div>
+        </td>
+      `;
+      tbody.appendChild(row);
     }
-}
-
-// Call function on page load
-window.onload = function() {
+  
+    table.appendChild(tbody);
+    container.appendChild(table);
+  }
+  
+  // Function to update color selection
+  function updateSelectedColor() {
+    const c = document.getElementById("cyan").value;
+    const m = document.getElementById("magenta").value;
+    const y = document.getElementById("yellow").value;
+    const hex = cmyToHex(c, m, y);
+  
+    document.getElementById("cmy-float-values").textContent = `CMY(${c}, ${m}, ${y})`;
+    document.getElementById("hex-display").textContent = hex;
+    document.getElementById("color-display").style.backgroundColor = `rgb(${255 - c}, ${255 - m}, ${255 - y})`;
+  }
+  
+  // Function to populate dropdowns
+  function setValues() {
+    const selectors = ["cyan", "magenta", "yellow"];
+    selectors.forEach(selector => {
+      const dropdown = document.getElementById(selector);
+      dropdown.innerHTML = "";
+      for (let i = 0; i <= 255; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.textContent = i;
+        dropdown.appendChild(option);
+      }
+    });
+  }
+  
+  // Event Listeners
+  document.getElementById("generate-btn").addEventListener("click", generateRandomColors);
+  document.getElementById("cyan").addEventListener("change", updateSelectedColor);
+  document.getElementById("magenta").addEventListener("change", updateSelectedColor);
+  document.getElementById("yellow").addEventListener("change", updateSelectedColor);
+  
+  // Initialize dropdowns on page load
+  window.onload = function () {
     setValues();
-    displayLastColor();
-};
+  };
+  
+  // Load the navbar
+  $(document).ready(function () {
+    $("#navbar").load("Navbar.html", function(response, status, xhr) {
+      if (status === "error") {
+        console.error("Navbar failed to load: ", xhr.status, xhr.statusText);
+      }
+    });
+  });
+  
 
+// Load Navbar
 $(function () {
     $("#navbar").load("Navbar.html");
-  });
-
-// Generate color based on selection
-document.getElementById('generate-btn').addEventListener('click', () => {
-    const cyan = parseFloat(document.getElementById('cyan').value);
-    const magenta = parseFloat(document.getElementById('magenta').value);
-    const yellow = parseFloat(document.getElementById('yellow').value);
-
-    const rgbColor = cmyToRgb(cyan, magenta, yellow);
-
-    document.getElementById('cmy-float-values').textContent = `CMY(${cyan.toFixed(2)}, ${magenta.toFixed(2)}, ${yellow.toFixed(2)})`;
-    document.getElementById('rgb-equivalent').textContent = rgbColor;
-    document.getElementById('color-display').style.backgroundColor = rgbColor;
-
-    // Store the color in local storage
-    storeColor(cyan, magenta, yellow);
 });
+
 

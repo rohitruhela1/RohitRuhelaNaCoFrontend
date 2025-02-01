@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
+  height: 100%;
 }
 
 .container {
@@ -23,6 +24,14 @@ body {
   background-color: rgb(62, 171, 207) !important;
   border-radius: 0; /* Remove border-radius to ensure it touches the edges */
 }
+
+.rgb-link {
+  text-decoration: underline dotted !important; /* Force removal */
+  display: inline-block; /* Ensures block elements inside work properly */
+  color: inherit; /* Keeps original text color */
+}
+
+
 
 .card.bg-primary h1 {
   margin: 0;
@@ -61,4 +70,22 @@ body {
 
 .mt-5 {
   margin-top: 3rem !important;
+}
+
+.footer {
+  background-color: #222; /* Matches Bootstrap 3 navbar-inverse */
+  color: #9d9d9d; /* Muted text */
+  padding: auto 0;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 30%;
+  height: auto;
+  bottom: 0;
+}
+
+.footer-style{
+  margin-top: 30px;
 }

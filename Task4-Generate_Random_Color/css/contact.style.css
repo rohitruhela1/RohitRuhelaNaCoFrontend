@@ -47,6 +47,24 @@
   text-align: center;
 }
 
+.footer {
+  background-color: #222; /* Matches Bootstrap 3 navbar-inverse */
+  color: #9d9d9d; /* Muted text */
+  padding: auto 0;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 30%;
+  height: auto;
+  bottom: 0;
+}
+
+.footer-style{
+  margin-top: 30px;
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
   .Site-links-additional {

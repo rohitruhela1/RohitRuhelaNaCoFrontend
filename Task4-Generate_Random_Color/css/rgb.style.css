@@ -44,6 +44,28 @@
   font-size: 1.5rem;
 }
 
+/* Style for the random colors container */
+.random-colors-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Style for each random color box */
+.random-color-box {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
 /* Dropdown Styling */
 select {
   width: 60px;
@@ -96,6 +118,86 @@ button {
   height: 30px;
   width: 100%;
 }
+
+.footer {
+  background-color: #222; /* Matches Bootstrap 3 navbar-inverse */
+  color: #9d9d9d; /* Muted text */
+  padding: auto 0;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 30%;
+  height: auto;
+  bottom: 0;
+}
+
+.footer-style{
+  margin-top: 30px;
+}
+
+/* Container for the random colors table */
+#random-colors-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Table styling */
+.random-colors-table {
+  width: 60%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table header styling */
+.random-colors-table th {
+  background-color: #800080;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Table row styling */
+.random-colors-table td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Color display box */
+.random-color-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+
+/* Hover effect on rows */
+.random-colors-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+  .random-colors-table {
+    width: 90%;
+  }
+
+  .random-color-box {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 
 /* Responsive Fixes */
 @media (max-width: 768px) {

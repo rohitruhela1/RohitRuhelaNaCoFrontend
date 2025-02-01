@@ -11,14 +11,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./css/cmy.style.css" />
+    <link rel="stylesheet" href="./css/navbar.style.css" />
   </head>
   <body>
-    <!-- Navbar -->
     <div id="navbar"></div>
 
     <div class="container">
       <div class="row">
-        <!-- CMY Theory Section -->
         <div class="col-md-6 col-sm-12">
           <div class="card cmy-theory-card">
             <h2 class="cmy-theory-card-header">
@@ -27,44 +26,49 @@
               <span style="color: yellow">Yellow</span> (CMY)
             </h2>
             <p class="cmy-theory-card-lower">
-              <strong>CMY</strong> is a <em>subtractive color model</em> used in
-              color printing. It uses **Cyan, Magenta, and Yellow** to create
-              different colors by subtracting brightness from white.
+              <strong><span style="color: cyan">CMY</span></strong> is a color
+              model used in color printing, where each component is stored as a
+              value between <strong>0</strong> and <strong>255</strong>. The
+              model uses cyan, magenta, and yellow to produce colors in the
+              subtractive color space. Unlike <strong>RGB</strong>, which is an
+              additive color model used for digital screens,
+              <strong>CMY</strong> works by subtracting light, meaning that
+              combining all three colors theoretically results in black.
+              However, the <strong>CMYK</strong> model to produce
+              deeper and more accurate blacks.
             </p>
           </div>
         </div>
-
-        <!-- CMY Color Selection -->
         <div class="col-md-6 col-sm-12">
           <div class="card color-selection-card">
-            <h2 class="cmy-selection-card-header">
-              <span style="color: cyan">Cyan</span>
-              <span style="color: magenta">Magenta</span>
-              <span style="color: yellow">Yellow</span> (CMY)
+            <h2 class="color-selection-card-header">
+              <span class="color-cyan">Cyan</span>
+              <span class="color-magenta">Magenta</span>
+              <span class="color-yellow">Yellow</span> (CMY)
             </h2>
-            <div class="cmy-theory-card-lower">
-              <h2>Select <span style="color: black">CMY</span> Values:</h2>
-
+            <div class="color-selection-card-lower">
+              <p><strong>Select CMY values:</strong></p>
               <label for="cyan">Cyan:</label>
               <select id="cyan"></select>
-
               <label for="magenta">Magenta:</label>
               <select id="magenta"></select>
-
               <label for="yellow">Yellow:</label>
               <select id="yellow"></select>
 
-              <!-- Table for CMY & RGB Values -->
+              <!-- Table for CMY Values and Display -->
               <table class="color-table">
                 <tr>
-                  <th><span style="color: black">CMY Float Values</span></th>
-                  <th><span style="color: black">RGB Equivalent</span></th>
+                  <th><span style="color: cyan">CMY</span> Float Values</th>
+                  <th>
+                    <span style="color: cyan">CMY</span> Hexadecimal Values
+                  </th>
                   <th>Display</th>
                 </tr>
                 <tr>
-                  <td id="cmy-float-values">(0, 0, 0)</td>
-                  <td id="rgb-equivalent">RGB(255, 255, 255)</td>
+                  <td id="cmy-float-values">(0.53, 0.11, 0.82)</td>
+                  <td id="hex-display">#861DD0</td>
                   <td>
+                    <!-- Reduced size for the color box -->
                     <div id="color-display" class="color-display-box"></div>
                   </td>
                 </tr>
@@ -72,10 +76,21 @@
             </div>
           </div>
         </div>
+        <div class="d-none d-md-block text-center">
+          <button id="generate-btn">Generate Random Colors</button>
+        </div>
+        <div id="random-colors-container"></div>
       </div>
-      <div class="generate-btn" style="text-align: center">
-        <button id="generate-btn">Generate Color</button>
-      </div>
+    </div>
+
+    <div class="footer-style">
+      <footer class="footer navbar-inverse text-center">
+        <div class="container-1">
+          <p class="text-muted">
+            &copy; 2025 Color Models. All Rights Reserved.
+          </p>
+        </div>
+      </footer>
     </div>
 
     <script src="./js/cmy.script.js"></script>

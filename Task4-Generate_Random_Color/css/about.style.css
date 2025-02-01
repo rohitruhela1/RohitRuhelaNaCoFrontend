@@ -7,3 +7,21 @@
     41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
     100px 100px 80px rgba(0, 0, 0, 0.07);
 }
+
+.footer {
+  background-color: #222; /* Matches Bootstrap 3 navbar-inverse */
+  color: #9d9d9d; /* Muted text */
+  padding: auto 0;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 30%;
+  height: auto;
+  bottom: 0;
+}
+
+.footer-style{
+  margin-top: 30px;
+}
