@@ -1,3 +1,7 @@
+body{
+  margin: 0;
+  padding-bottom: 60px
+}
 .container-additional-css {
   font-size: large;
   box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
@@ -11,17 +15,10 @@
 .footer {
   background-color: #222; /* Matches Bootstrap 3 navbar-inverse */
   color: #9d9d9d; /* Muted text */
-  padding: auto 0;
-  margin: auto;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  width: 30%;
-  height: auto;
+  padding: 15px 0;
+  width: 100%;
+  position: fixed;
   bottom: 0;
-}
-
-.footer-style{
-  margin-top: 30px;
+  left: 0;
+  text-align: center;
 }

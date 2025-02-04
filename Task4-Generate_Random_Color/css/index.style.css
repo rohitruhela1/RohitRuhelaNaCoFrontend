@@ -1,7 +1,8 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
-  height: 100%;
+  margin: 0;
+  padding-bottom: 60px
 }
 
 .container {
@@ -75,17 +76,14 @@ body {
 .footer {
   background-color: #222; /* Matches Bootstrap 3 navbar-inverse */
   color: #9d9d9d; /* Muted text */
-  padding: auto 0;
-  margin: auto;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  width: 30%;
-  height: auto;
+  padding: 15px 0;
+  width: 100%;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  text-align: center;
 }
 
-.footer-style{
+/* .footer-style{
   margin-top: 30px;
-}
+} */

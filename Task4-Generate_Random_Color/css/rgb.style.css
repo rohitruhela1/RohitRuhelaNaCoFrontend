@@ -1,3 +1,7 @@
+body{
+  margin: 0;
+  padding-bottom: 60px
+}
 /* Navbar fix */
 #navbar {
   width: 100%;
@@ -122,21 +126,13 @@ button {
 .footer {
   background-color: #222; /* Matches Bootstrap 3 navbar-inverse */
   color: #9d9d9d; /* Muted text */
-  padding: auto 0;
-  margin: auto;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  width: 30%;
-  height: auto;
+  padding: 15px 0;
+  width: 100%;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  text-align: center;
 }
-
-.footer-style{
-  margin-top: 30px;
-}
-
 /* Container for the random colors table */
 #random-colors-container {
   margin-top: 20px;
