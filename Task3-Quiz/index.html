@@ -215,13 +215,13 @@
           Skip Question
         </button>
         <button style="padding: 10px;" class="skip-btn" id="next-btn"  onclick="NextQuestion()">
-          Save Answer & Next
+          Save Answer & Next
         </button>
       </div>
     <!-- submti button -->
       <div class="submit-btn-div">
         <button class="submit-btn" id="submit-btn" onclick="SubmitTheQuiz()">
-          Submit Quiz
+          Submit Quiz
         </button>
       </div>
 
@@ -1170,6 +1170,42 @@
     const timerInterval = setInterval(updateTimer, 1000);
 
     // submit the quiz
+    // function SubmitTheQuiz() {
+    //   let correctAnswer = 0;
+    //   let wrongAnswer = 0;
+    //   console.log("Submit button clicked!");
+    //   clearInterval(timerInterval);
+
+    //   // Iterate over user responses
+    //   for (const [key, value] of answermap.entries()) {
+    //     console.log(`${key}: ${value}`); 
+    //     const currentQuestion = questions[key]; 
+
+    //     // Check if the user's answer matches the correct answer
+    //     if (value === currentQuestion.correctAnswer) {
+    //       correctAnswer++;
+    //     } else {
+    //       wrongAnswer++;
+    //     }
+    //   }
+
+    //   // Calculate results
+    //   const totalQuestions = questions.length;
+    //   const skippedQuestions = totalQuestions - (correctAnswer + wrongAnswer);
+    //   const score = correctAnswer ; 
+
+    //   // Replace body content with results
+    //   document.body.innerHTML = `
+    //     <div style="text-align: center; margin: 50px; color:white;">
+    //       <h1>Quiz Results</h1>
+    //       <p><strong>Total Questions:</strong> ${totalQuestions}</p>
+    //       <p><strong>Correct Answers:</strong> ${correctAnswer}</p>
+    //       <p><strong>Wrong Answers:</strong> ${wrongAnswer}</p>
+    //       <p><strong>Skipped Questions:</strong> ${skippedQuestions}</p>
+    //       <p><strong>Final Score:</strong> ${score.toFixed(2)}</p>
+    //     </div>
+    //   `;
+    // }
     function SubmitTheQuiz() {
       let correctAnswer = 0;
       let wrongAnswer = 0;
@@ -1178,8 +1214,8 @@
 
       // Iterate over user responses
       for (const [key, value] of answermap.entries()) {
-        console.log(`${key}: ${value}`); 
-        const currentQuestion = questions[key]; 
+        console.log(`${key}: ${value}`);
+        const currentQuestion = questions[key];
 
         // Check if the user's answer matches the correct answer
         if (value === currentQuestion.correctAnswer) {
@@ -1192,8 +1228,8 @@
       // Calculate results
       const totalQuestions = questions.length;
       const skippedQuestions = totalQuestions - (correctAnswer + wrongAnswer);
-      const score = correctAnswer ; 
-
+      const score = correctAnswer;
+      document.body.style.backgroundColor = 'grey';
       // Replace body content with results
       document.body.innerHTML = `
         <div style="text-align: center; margin: 50px; color:white;">
@@ -1203,8 +1239,43 @@
           <p><strong>Wrong Answers:</strong> ${wrongAnswer}</p>
           <p><strong>Skipped Questions:</strong> ${skippedQuestions}</p>
           <p><strong>Final Score:</strong> ${score.toFixed(2)}</p>
+          <button onclick="showAnswers()" style="margin-top: 20px; padding: 10px 20px; font-size: 1rem; cursor: pointer;">
+            Show Answers
+          </button>
         </div>
       `;
+    }
+
+    // Show answers one by one
+    let currentAnswerIndex = 0;
+
+    function showAnswers() {
+      document.body.innerHTML = `
+        <div style="text-align: center; margin: 50px; color:white;">
+          <h1>Question ${currentAnswerIndex + 1}</h1>
+          <p><strong>Question:</strong> ${questions[currentAnswerIndex].question}</p>
+          <p><strong>Your Answer:</strong> ${answermap.get(currentAnswerIndex) || "Skipped"}</p>
+          <p><strong>Correct Answer:</strong> ${questions[currentAnswerIndex].correctAnswer}</p>
+          <p><strong>Explanation:</strong> ${questions[currentAnswerIndex].answerText}</p>
+          <button onclick="nextAnswer()" style="margin-top: 20px; padding: 10px 20px; font-size: 1rem; cursor: pointer;">
+            Next Question
+          </button>
+        </div>
+      `;
+    }
+
+    function nextAnswer() {
+      currentAnswerIndex++;
+      if (currentAnswerIndex < questions.length) {
+        showAnswers();
+      } else {
+        document.body.innerHTML = `
+          <div style="text-align: center; margin: 50px; color:white;">
+            <h1>End of Answers</h1>
+            <p>You have viewed all the questions and answers.</p>
+          </div>
+        `;
+      }
     }
 
     // Load question
